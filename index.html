@@ -165,6 +165,19 @@
                     tooltip.style("opacity", 0) // hide the element 
                 })
 
+            //create div for the tooltip and hide with opacity
+            var tooltip = d3.select("body").append("div)")
+                .attr("class", "tooltip)")
+
+            // select the map element
+            d3.select("#map")
+                .on("mousemove", function (event) { // when mouse moves over it
+                    // update the position of the tooltip
+                    tooltip.style("left", (d3.event.pageX + 10) + "px")
+                        .style("top", (d3.event.pageY - 30) + "px");
+                })
+
+
 
 
         }
