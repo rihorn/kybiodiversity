@@ -54,6 +54,13 @@
             fill: #468fa6;
             stroke: whitesmoke;
         }
+
+
+    .hover {
+      stroke: #fe955f;
+      stroke-width: 2;
+    }
+    
     </style>
 </head>
 
@@ -137,6 +144,11 @@
                 .append("path")
                 .attr("d", path)
                 .attr("class", "quad")
+                .on("mouseover", function(d) {
+                    d3.select(this).classed("hover", true());
+                    // tooltip.style("opacity", 0)
+                })
+
 
         }
     </script>
