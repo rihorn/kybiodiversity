@@ -9,6 +9,7 @@
 
 
     <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
     <style>
         body {
             padding: 0;
@@ -78,6 +79,8 @@
 
     <script>
         // define color generator
+
+      
         var color = d3.scaleOrdinal(d3.schemeSet1)
 
         var quadsJson = d3.json("data/quads.json")
@@ -129,9 +132,6 @@
                 .append("path")
                 .attr("d", path)
                 .attr("class", "quad")
-
-
-
 
         }
     </script>
