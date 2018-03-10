@@ -56,11 +56,22 @@
         }
 
 
-    .hover {
-      stroke: #fe955f;
-      stroke-width: 2;
-    }
-    
+        .hover {
+            stroke: #fe955f;
+            stroke-width: 2;
+        }
+
+        .tooltip {
+            position: absolute;
+            min-width: 60px;
+            min-height: 28px;
+            padding: 6px 12px 3px;
+            color: whitesmoke;
+            background: #245574;
+            border-radius: 2px;
+            pointer-events: none;
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -78,7 +89,7 @@
                 <li>Boundaries sourced from
                     <a href="https://catalog.data.gov/dataset/usgs-map-quadrangles">DATA.GOV USGS Quadrangle Maps</a>
                 </li>
-                <li>Element Occurrence data sourced from 
+                <li>Element Occurrence data sourced from
                     <a target="_blank" href="http://www.natureserve.org/conservation-tools/biotics-5">NatureServe's Biotics5 database</a>
                 </li>
             </ul>
@@ -132,7 +143,7 @@
             var projection = d3.geoAlbers()
                 .center([0, 37.53]) // center of geography in latitutde
                 .rotate([84.5, 0]) // rotate the earth negative degrees in longitude
-                .scale(4800) // adjust the scale (or zoom)
+                .scale(7000) // adjust the scale (or zoom)
 
             var path = d3.geoPath()
                 .projection(projection)
@@ -144,10 +155,16 @@
                 .append("path")
                 .attr("d", path)
                 .attr("class", "quad")
-                .on("mouseover", function(d) {
-                    d3.select(this).classed("hover", true());
-                    // tooltip.style("opacity", 0)
+                .on("mouseover", function (d) {
+                    d3.select(this).classed("hover", true)
+                    tooltip.style("opacity", 1)
                 })
+                // tooltip.style("opacity", 0)
+                .on("mouseout", function () { // when mousing out of an element
+                    d3.select(this).classed("hover", false) // remove the class
+                    tooltip.style("opacity", 0) // hide the element 
+                })
+
 
 
         }
