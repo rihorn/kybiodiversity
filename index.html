@@ -63,23 +63,37 @@
             <ul>
               <li>Map authored by @ianhorn17</li>
               <li>Boundaries sourced from
-                <a href="http://www2.census.gov/geo/tiger/GENZ2016/shp/cb_2016_us_state_20m.zip">US Census State Boundary Shapefile</a>
+                <a href="https://catalog.data.gov/dataset/usgs-map-quadrangles">DATA.GOV USGS Quadrangle Maps</a>
               </li>
               <li>Emmissions data sourced from the 
                   <a target="_blank" href="https://www.epa.gov/air-emissions-inventories/emissions-inventory-system-eis-gateway">EPA Emissions Inventory Sytem Gateway</a>
                 </li>
             </ul>
         </footer>
+        
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="https://unpkg.com/topojson@3"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+        <script> 
+       
+       var quadsJson = d3.json("data/quads.json")
+       var eoQuads = d3.csv("data/eo_quads.csv")
+
+
+
+
+
+        </script>
+
+
+
+
+
+    
+
 
 
 
     </body>
-
-
-
-
-
-
-
-
 </html>
