@@ -115,15 +115,17 @@
                 }))
                 .append("g")
 
-
+            // equal aera projection centered on Kentukcy
             var projection = d3.geoAlbers()
                 .center([0, 37.53])  // center of geography in latitude
                 .rotate([84.5,0])  // rotate the earth negative degrees in longitude
                 .scale(4800)  // adjust the scale (i.e., "zoom")
 
+            // create path generator
             var path = d3.geoPath()
                 .projection(projection)
 
+            // append new path elements using GeoJSON data
             svg.append("g")
                 .selectAll("path")
                 .data(quadsData.features)
