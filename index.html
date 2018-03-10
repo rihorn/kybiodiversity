@@ -88,7 +88,7 @@
         // function fired if there is an error
         function error(error) {
             console.log(error)
-    
+
         }
 
         function drawMap(data) {
@@ -99,7 +99,8 @@
 
             //data is array or two datasets
             var quadsData = data[0],
-                eoData = data[1]        
+                eoData = data[1]
+               
 
 
             // select the map element
@@ -110,19 +111,20 @@
 
             // // get the GeoJSON representation of the TopoJSON data
             var geojson = topojson.feature(quadsData, {
-                type: "FeatureCollection",
-                geometries: quadsData.features.geometry
-            }
+                    type: "FeatureCollection",
+                    geometries: quadsData.features.geometry
+                })
 
-            // define a projection using the US Albers USA
-            // fit the extent of the GeoJSON data to specified
-            // width and height
-            var projection = d3.geoAlbersUsa()
+                // define a projection using the US Albers USA
+                // fit the extent of the GeoJSON data to specified
+                // width and height
+
+                var projection = d3.geoAlbersUsa()
                 .fitSize([width, height], geojson)
 
-            var path = d3.geoPath()
-                .projection(projection)
-        }
+                var path = d3.geoPath()
+                    .projection(projection)
+            }
     </script>
 
 </body>
