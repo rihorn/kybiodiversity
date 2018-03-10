@@ -79,14 +79,14 @@
         // define color generator
         var color = d3.scaleOrdinal(d3.schemeSet1)
 
-        var quadsJson = d3.json("data/kyQuads.json")
-        var eoQuads = d3.csv("data/eo_quads.csv")
+        var quadsJson = d3.json("data/quads.json")
+        var eo = d3.csv("data/eo_quads.csv")
 
 
         //use promise to call all data files, send data to callback
-        Promise.all([quadsJson, eoQuads]).then(drawMap)
+        Promise.all([quadsJson, eo]).then(drawMap)
         // function fired if there is an error
-        function erro(error) {
+        function error(error) {
             console.log(error)
     
         }
@@ -99,9 +99,7 @@
 
             //data is array or two datasets
             var quadsData = data[0],
-                eoData = data[1]
-            console.log(quadsData)
-
+                eoData = data[1]        
 
 
             // select the map element
@@ -113,8 +111,9 @@
             // // get the GeoJSON representation of the TopoJSON data
             var geojson = topojson.feature(quadsData, {
                 type: "FeatureCollection",
-                geometries: quadsData.object.features.geometry 
-            })
+                geometries: quadsData.features.geometry
+            }
+           
 
             // define a projection using the US Albers USA
             // fit the extent of the GeoJSON data to specified
