@@ -79,21 +79,54 @@
         // define color generator
         var color = d3.scaleOrdinal(d3.schemeSet1)
 
-        var quadsJson = d3.json("data/quads.json")
+        var quadsJson = d3.json("data/kyQuads.json")
         var eoQuads = d3.csv("data/eo_quads.csv")
+
 
         //use promise to call all data files, send data to callback
         Promise.all([quadsJson, eoQuads]).then(drawMap)
         // function fired if there is an error
         function erro(error) {
             console.log(error)
+    
         }
 
-        function drawMap
+        function drawMap(data) {
+
+            // define width and height of our svg
+            var width = 960,
+                height = 600
+
+            //data is array or two datasets
+            var quadsData = data[0],
+                eoData = data[1]
+            console.log(eoData)
 
 
 
+            // select the map element
+            var svg = d3.select("#map")
+                .append("svg") // append a new SVG element
+                .attr("width", width) // give the SVG element a width attribute and value
+                .attr("height", height) // same for the height
 
+            // // get the GeoJSON representation of the TopoJSON data
+            var geojson = topojson.feature(quadsData, {
+                type: "GeometryCollection",
+                geometries: quadsData.objects.quads.geometries
+            })
+
+            // define a projection using the US Albers USA
+            // fit the extent of the GeoJSON data to specified
+            // width and height
+            var projection = d3.geoAlbersUsa()
+                .fitSize([width, height], geojson)
+
+            var path = d3.geoPath()
+                .projection(projection)
+
+
+        }
     </script>
 
 
