@@ -48,6 +48,10 @@
             width: 100%;
             height: 600px;
         }
+        .quad {
+            fill: slategrey;
+            stroke: white;
+        }
     </style>
 </head>
 
@@ -100,32 +104,34 @@
             //data is array or two datasets
             var quadsData = data[0],
                 eoData = data[1]
-                console.log(data)
                
-
-
             // select the map element
             var svg = d3.select("#map")
                 .append("svg") // append a new SVG element
                 .attr("width", width) // give the SVG element a width attribute and value
                 .attr("height", height) // same for the height
+                .call(d3.zoom().on("zoom", function () { // allow pan/zoom
+                    svg.attr("transform", d3.event.transform) 
+                }))
+                .append("g")
 
-            // // get the GeoJSON representation of the TopoJSON data
-            var geojson = topojson.feature(quadsData, {
-                    type: "FeatureCollection",
-                    geometries: quadsData.features.geometry
-                })
-                console.log(geojson)
 
-                // define a projection using the US Albers USA
-                // fit the extent of the GeoJSON data to specified
-                // width and height
+            var projection = d3.geoAlbers()
+                .center([0, 37.53])  // center of geography in latitude
+                .rotate([84.5,0])  // rotate the earth negative degrees in longitude
+                .scale(4800)  // adjust the scale (i.e., "zoom")
 
-                var projection = d3.geoAlbersUsa()
-                .fitSize([width, height], geojson)
+            var path = d3.geoPath()
+                .projection(projection)
 
-                var path = d3.geoPath()
-                    .projection(projection)
+            svg.append("g")
+                .selectAll("path")
+                .data(quadsData.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .attr("class", "quad")
+
             }
     </script>
 
