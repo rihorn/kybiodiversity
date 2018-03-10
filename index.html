@@ -100,6 +100,7 @@
             //data is array or two datasets
             var quadsData = data[0],
                 eoData = data[1]
+                console.log(data)
                
 
 
@@ -114,6 +115,7 @@
                     type: "FeatureCollection",
                     geometries: quadsData.features.geometry
                 })
+                console.log(geojson)
 
                 // define a projection using the US Albers USA
                 // fit the extent of the GeoJSON data to specified
