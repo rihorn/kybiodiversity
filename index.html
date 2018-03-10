@@ -49,6 +49,11 @@
             width: 100%;
             height: 600px;
         }
+
+        .quad {
+            fill: #468fa6;
+            stroke: whitesmoke;
+        }
     </style>
 </head>
 
@@ -66,8 +71,8 @@
                 <li>Boundaries sourced from
                     <a href="https://catalog.data.gov/dataset/usgs-map-quadrangles">DATA.GOV USGS Quadrangle Maps</a>
                 </li>
-                <li>Emmissions data sourced from the
-                    <a target="_blank" href="https://www.epa.gov/air-emissions-inventories/emissions-inventory-system-eis-gateway">EPA Emissions Inventory Sytem Gateway</a>
+                <li>Element Occurrence data sourced from 
+                    <a target="_blank" href="http://www.natureserve.org/conservation-tools/biotics-5">NatureServe's Biotics5 database</a>
                 </li>
             </ul>
     </footer>
@@ -80,7 +85,7 @@
     <script>
         // define color generator
 
-      
+
         var color = d3.scaleOrdinal(d3.schemeSet1)
 
         var quadsJson = d3.json("data/quads.json")
