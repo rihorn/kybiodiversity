@@ -10,6 +10,7 @@
 
     <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
+
     <style>
         body {
             padding: 0;
@@ -100,83 +101,81 @@
 
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
+
     <script>
-        // define color generator
+
+                    var color = d3.scaleOrdinal(d3.schemeSet1)
+
+                    var quadsJson = d3.json("data/quads.json")
+                    var eo = d3.csv("data/eo_quads.csv")
 
 
-        var color = d3.scaleOrdinal(d3.schemeSet1)
+                    //use promise to call all data files, send data to callback
+                    Promise.all([quadsJson, eo]).then(drawMap)
+                    // function fired if there is an error
+                    function error(error) {
+                        console.log(error)
 
-        var quadsJson = d3.json("data/quads.json")
-        var eo = d3.csv("data/eo_quads.csv")
+                    }
 
+                    function drawMap(data) {
 
-        //use promise to call all data files, send data to callback
-        Promise.all([quadsJson, eo]).then(drawMap)
-        // function fired if there is an error
-        function error(error) {
-            console.log(error)
+                        // define width and height of our svg
+                        var width = 960,
+                            height = 600
 
-        }
+                        //data is array or two datasets
+                        var quadsData = data[0],
+                            eoData = data[1]
 
-        function drawMap(data) {
-
-            // define width and height of our svg
-            var width = 960,
-                height = 600
-
-            //data is array or two datasets
-            var quadsData = data[0],
-                eoData = data[1]
-
-            // select the map element
-            var svg = d3.select("#map")
-                .append("svg") // append a new SVG element
-                .attr("width", width) // give the SVG element a width attribute and value
-                .attr("height", height) // same for the height
-                .call(d3.zoom().on("zoom", function () { //allow pan/zoom
-                    svg.attr("transform", d3.event.transform)
-                }))
-                .append("g")
+                        // select the map element
+                        var svg = d3.select("#map")
+                            .append("svg") // append a new SVG element
+                            .attr("width", width) // give the SVG element a width attribute and value
+                            .attr("height", height) // same for the height
+                            .call(d3.zoom().on("zoom", function () { //allow pan/zoom
+                                svg.attr("transform", d3.event.transform)
+                            }))
+                            .append("g")
 
 
 
-            var projection = d3.geoAlbers()
-                .center([0, 37.53]) // center of geography in latitutde
-                .rotate([84.5, 0]) // rotate the earth negative degrees in longitude
-                .scale(7000) // adjust the scale (or zoom)
+                        var projection = d3.geoAlbers()
+                            .center([0, 37.53]) // center of geography in latitutde
+                            .rotate([84.5, 0]) // rotate the earth negative degrees in longitude
+                            .scale(7000) // adjust the scale (or zoom)
 
-            var path = d3.geoPath()
-                .projection(projection)
+                        var path = d3.geoPath()
+                            .projection(projection)
 
-            svg.append("g")
-                .selectAll("path")
-                .data(quadsData.features)
-                .enter()
-                .append("path")
-                .attr("d", path)
-                .attr("class", "quad")
-                .on("mouseover", function (d) {
-                    d3.select(this).classed("hover", true)
-                    tooltip.style("opacity", 1)
-                })
-                // tooltip.style("opacity", 0)
-                .on("mouseout", function () { // when mousing out of an element
-                    d3.select(this).classed("hover", false) // remove the class
-                    tooltip.style("opacity", 0) // hide the element 
-                })
+                        svg.append("g")
+                            .selectAll("path")
+                            .data(quadsData.features)
+                            .enter()
+                            .append("path")
+                            .attr("d", path)
+                            .attr("class", "quad")
+                            .on("mouseover", function (d) {
+                                d3.select(this).classed("hover", true)
+                               // tooltip.style("opacity", 1).html(d.properties.QUAD24NAME)
+                            })
+                            .on("mouseout", function (d) { // when mousing out of an element
+                                d3.select(this).classed("hover", false) // remove the class
+                               // tooltip.style("opacity", 0) // hide the element 
+                            })
 
-            //create div for the tooltip and hide with opacity
-            var tooltip = d3.select("body").append("div)")
-                .attr("class", "tooltip)")
+                        //create div for the tooltip and hide with opacity
+                        var tooltip = d3.select("body").append("div)")
+                            .attr("class", "tooltip)")
 
-            // select the map element
-            d3.select("#map")
-                .on("mousemove", function (event) { // when mouse moves over it
-                    // update the position of the tooltip
-                    tooltip.style("left", (d3.event.pageX + 10) + "px")
-                        .style("top", (d3.event.pageY - 30) + "px");
-                })
-        }
+                        // select the map element
+                        d3.select("#map")
+                            .on("mousemove", function (event) { // when mouse moves over it
+                                // update the position of the tooltip
+                                tooltip.style("left", (d3.event.pageX + 10) + "px")
+                                    .style("top", (d3.event.pageY - 30) + "px");
+                            })
+                    }
     </script>
 
 </body>
