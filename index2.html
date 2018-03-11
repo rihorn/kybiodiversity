@@ -2,142 +2,188 @@
 <html>
 
 <head>
-    <meta charset=utf-8 />
-    <title>starter template map673 module 04</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <!-- loading Assembly CSS here -->
-    <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
-    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+  <meta charset=utf-8 />
+  <title>starter template map673 module 04</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <!-- loading Assembly CSS here -->
+  <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
+  <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
 
-    <style>
-        #map {
-            background: #448ee4;
-        }
+  <style>
+    #map {
+      background: #448ee4;
+    }
 
-        h1 {
-            color: orange;
-        }
-    </style>
+    h1 {
+      color: orange;
+    }
+  </style>
 
 
 </head>
 
 <body>
 
-    <div class='flex-parent viewport-full relative scroll-hidden'>
-        <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
-            <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
-                <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-                    <h1 class='txt-h1 mb6'>Title here</h1>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur
-                        est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean
-                        lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <h2 class='txt-xl mt18 mb12'>subheading</h2>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur
-                        est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean
-                        lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                </div>
-                <footer class='px12 py12 bg-gray-faint txt-s'>
-                    <ul>
-                        <li>Explore the raw
-                            <a class='link' href='#'>data</a>
-                        </li>
-                        <li>Map authored by
-                            <a class='link' href='#'>Ptolemy</a>
-                        </li>
-                    </ul>
-                </footer>
-            </div>
+  <div class='flex-parent viewport-full relative scroll-hidden'>
+    <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
+      <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
+        <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
+          <h1 class='txt-h1 mb6'>Title here</h1>
+          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
+            at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
+            nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
+            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <h2 class='txt-xl mt18 mb12'>subheading</h2>
+          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
+            at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
+            nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
+            et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </div>
-        <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
-            <div id="map" class='viewport-twothirds viewport-full-ml'></div>
-
-            <!-- ui slider -->
-            <div id='slider' class='range w249 bg-white round-ml px12'>
-                <input type='range' />
-            </div>
-            <!-- legend -->
-            <div id='legend' class='bg-white round-ml px18 py12'>
-                <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
-                <div class='bg-blue h180 w240 mx-auto'></div>
-            </div>
-
-
-        </div>
+        <footer class='px12 py12 bg-gray-faint txt-s'>
+          <ul>
+            <li>Explore the raw
+              <a class='link' href='#'>data</a>
+            </li>
+            <li>Map authored by
+              <a class='link' href='#'>Ptolemy</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
     </div>
+    <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
+      <div id="map" class='viewport-twothirds viewport-full-ml'></div>
+
+      <!-- ui slider -->
+      <div id='slider' class='range w249 bg-white round-ml px12'>
+        <input type='range' />
+      </div>
+      <!-- legend -->
+      <div id='legend' class='bg-white round-ml px18 py12'>
+        <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
+        <div class='bg-blue h180 w240 mx-auto'></div>
+      </div>
 
 
-    <!-- loading Assembly JS here -->
-    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
- 
-    <script>
-        L.mapbox.accessToken =
-            'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
-        var map = L.mapbox.map('map', 'mapbox.outdoors', {
-            zoomSnap: .1,
-            center: [37.6438332, -85.6487252],
-            zoom: 7,
-            minZoom: 6,
-            maxZoom: 9,
-            //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
-        });
+    </div>
+  </div>
 
-        omnivore.csv('data/KenyaPrimaryEd.csv').addTo(map);
-        var layer = omnivore.gpx('a.gpx')
-            .on('ready', function () {
-                //  all data is loaded into the layer
-            })
-            .on('error', function () {
-                // fired if the layer can't be loaded over AJAX
-                // or can't be parsed
-            })
-            .addTo(map);
-       //create Leaflet control for  the legend
-       var legendControl = L.control({ 
-           position: 'bottomright'
-       });
 
-       // when the control is added to the map
-       legendControl.onAdd = function (map) {
+  <!-- loading Assembly JS here -->
+  <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
+  <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+  <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+  <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
 
-           //select the legend using id attribute of legend
-           var legend = L.DomUtil.get("legend");
-           
-           //disable scroll and click functionality
-           L.DomEvent.disableScrollPropagation(legend);
-           L.DomEvent.disableClickPropagation(legend)
+  <script>
+    L.mapbox.accessToken =
+      'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
+    var map = L.mapbox.map('map', 'mapbox.outdoors', {
+      zoomSnap: .1,
+      center: [37.6438332, -85.6487252],
+      zoom: 7,
+      minZoom: 6,
+      maxZoom: 9,
+      //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
+    });
 
-           //return the selection
-           return legend;
+    $.getJSON("data/quads.json", function (quads) {
 
-       }
-   
-       legendControl.addTo(map);
+      Papa.parse('data/eo_quads.csv', {
 
-       //do the same thing for the UI slider
-       var sliderControl = L.control({
-           position:  'bottomleft'
-       });
+        download: true,
+        header: true,
+        complete: function (data) {
 
-       sliderControl.onAdd = function(map) {
+          // // data is accessible to us here
+           //console.log('data: ', data);
 
-           var controls = L.DomUtil.get("slider");
+          // note that counties is also accessible here!
+          processData(quads, data);
+          //console.log(data);
+        }
+      }); // end of Papa.parse()
 
-           L.DomEvent.disableScrollPropagation(controls);
-           L.DomEvent.disableClickPropagation(controls);
-           
-           return controls;
+//console.log(quads);
 
-       }
+    }); // end of $.getJSON()
+    function processData(quads, data) {
 
-       sliderControl.addTo(map);
+      //loop through all the counties
+      for (var i = 0; i < quads.features.length; i++) {
 
-    </script>
+        var props = quads.features[i].properties;
+
+        for (var j = 0; j < data.data.length; j++) {
+
+          if (props.QUAD24NAME === data.data[j].QUAD_NAME) {
+
+            //reassign the properties the data
+            quads.features[i].properties = data.data[j]
+
+            break;
+
+          }
+        }
+      }
+
+      var rates = [];
+      console.log(rates);
+
+      quads.features.forEach(function (quad) {
+
+        for (var prop in quad.properties) {
+          if (+prop) {
+            rates.push(+quad.properties[prop]);
+          }
+        }
+      });
+
+      // var breaks = chroma.limits(rates, 'q', 5);
+
+      // //create colorize function
+      // var colorize = chroma.scale(chroma.brewer.OrRd).classes(breaks);
+
+      // //console.log(colorize(15));
+
+      drawMap(quads);
+    }
+
+    function drawMap(quads) {
+
+      // create Leaflet object with geometry data and add to map
+      var dataLayer = L.geoJson(quads, {
+        style: function (feature) {
+          return {
+            color: 'black',
+            weight: 1,
+            fillOpacity: 1,
+            fillColor: '#1f78b4'
+          };
+        }
+      }).addTo(map);
+
+
+      // first set the zoom/center to the dataLayer's extent
+     // map.fitBounds(dataLayer.getBounds());
+
+
+      // then back the zoom level off a bit (since we're viewing the map full screen)
+      //map.setZoom(map.getZoom() - .2);
+
+    
+
+    // function updateMap() {}
+
+    // function drawLegend() {}
+
+    // function createSliderUI() {
+
+    } // end createSliderUI()
+  </script>
 
 
 
