@@ -131,7 +131,7 @@
       }
 
       var rates = [];
-      console.log(rates);
+      //console.log(rates);
 
       quads.features.forEach(function (quad) {
 
@@ -142,19 +142,21 @@
         }
       });
 
-      // var breaks = chroma.limits(rates, 'q', 5);
+//       var breaks = chroma.limits(rates, 'q', 5);
 
-      // //create colorize function
-      // var colorize = chroma.scale(chroma.brewer.OrRd).classes(breaks);
+//       //create colorize function
+//       var colorize = chroma.scale(chroma.brewer.OrRd).classes(breaks);
 
-      // //console.log(colorize(15));
+//       //console.log(colorize(15));
 
-      drawMap(quads);
-    }
+       drawMap(quads);
+  }
 
     function drawMap(quads) {
 
       // create Leaflet object with geometry data and add to map
+
+         
       var dataLayer = L.geoJson(quads, {
         style: function (feature) {
           return {
@@ -164,6 +166,7 @@
             fillColor: '#1f78b4'
           };
         }
+   
       }).addTo(map);
 
 
