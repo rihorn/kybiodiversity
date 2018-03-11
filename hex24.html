@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>24 km hexagons rare natural elements</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="area_maps.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="map_title"><span class='area'>Georgia 24 km hexagons</span><br/><span class='action'>Click or tap on hexagons to get report of rare natural elements</span></div>
+    <a href="http://www.georgiawildlife.com"><div id="dnr_logo"></div></a>
+    <div id='export_date'></div>
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <script>
+    
+      function main() {
+      
+        // Change the zoom level if small screen
+        zoom_level = 7;
+        if  ((($(window).width() ) < 550)||(($(window).height()) < 425)) {
+          zoom_level = 6;
+        }
+      
+        cartodb.createVis('map', 'https://gakrakow.carto.com/api/v2/viz/912780df-b56a-4d8c-b886-2a844b660201/viz.json', {
+            legends: true,
+            cartodb_logo: false,
+            search: true,
+            searchControl: true,
+            zoomControl: true,
+            mobile_layout: true,
+            fullscreen: true,
+            shareable: true,
+            title: false,
+            description: true,
+            search: true,
+            tiles_loader: true,
+            center_lat : 33,
+            center_lon : -83,
+            zoom : zoom_level,
+            cartodb_logo: false
+        })
+        .done(function(vis, layers) {
+          // layer 0 is the base layer, layer 1 is cartodb layer
+          // setInteraction is disabled by default
+          layers[1].setInteraction(true);
+          layers[1].on('featureOver', function(e, latlng, pos, data) {
+            cartodb.log.log(e, latlng, pos, data);
+          });
+          // you can get the native map to work with it
+          var map = vis.getNativeMap();
+          // now, perform any operations you need
+          // map.setZoom(3);
+          // map.panTo([50.5, 30.5]);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      window.onload = main;
+    </script>
+  </body>
+</html>
