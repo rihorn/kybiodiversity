@@ -100,7 +100,7 @@
         complete: function (data) {
 
           //  data is accessible to us here
-           //console.log('data: ', data);
+          //console.log('data: ', data);
 
           // note that counties is also accessible here!
           processData(quads, data);
@@ -108,7 +108,7 @@
         }
       }); // end of Papa.parse()
 
-// console.log(quads);
+      // console.log(quads);
 
     }); // end of $.getJSON()
     function processData(quads, data) {
@@ -150,14 +150,14 @@
 
       // console.log(colorize(15));
 
-       drawMap(quads);
-  }
+      drawMap(quads);
+    }
 
     function drawMap(quads) {
 
       // create Leaflet object with geometry data and add to map
 
-         
+
       var dataLayer = L.geoJson(quads, {
         style: function (feature) {
           return {
@@ -167,52 +167,55 @@
             fillColor: '#1f78b4'
           };
         }
-   
+
       }).addTo(map);
 
-      function retrieveInfo(dataLayer) {
+      function updateMap(dataLayer) {
 
-        // hide info initially
-        var info = $('#info').hide();
+        dataLayer.eachLayer(function (layer) {
 
-        // detect quads on mouseover
-        dataLayer.on('mouseover', function(e) {
-      
+          var props = layer.feature.properties;
 
-        
-      
-        info.show();
-        
-        // access properties of the target layer
-        var props = e.layer.feature.properties
-        
-        //populate HTML elements with relevant info
-        $('info span').html(props.QUAD24NAME);
+          // layer.setStyle({
+          //     fillColor: colorize(props[currentYear])
+          //   }),
 
-      // raise opacity level as visual affordance
-      e.layer.setStyle({
-        fillOpacity: .6
-      });
+            //add affordance - mouseover and mouseout
+            layer.on('mouseover', function () {
+              layer.setStyle({
+                fillColor: 'yellow'
+              });
+            });
+          layer.on('mouseout', function () {
+            layer.setStyle({
+              fillColor: 'blue'
+            });
+          });
 
-
-      })
-    }
+          // add text for popup
+          var tooltipString = '</b><u><center>' + props.QUAD24NAME + '</u>' ;
+            // +
+            // '<br>' + 'unemployment rate: ' + props[currentYear] +
+            // '%' + '</br>';
+          layer.bindTooltip(tooltipString);
+        })
+      }
 
 
       // first set the zoom/center to the dataLayer's extent
-     // map.fitBounds(dataLayer.getBounds());
+      // map.fitBounds(dataLayer.getBounds());
 
 
       // then back the zoom level off a bit (since we're viewing the map full screen)
       //map.setZoom(map.getZoom() - .2);
 
-    
 
-    // function updateMap() {}
 
-    // function drawLegend() {}
+      // function updateMap() {}
 
-    // function createSliderUI() {
+      // function drawLegend() {}
+
+      // function createSliderUI() {
 
     } // end createSliderUI()
   </script>
