@@ -99,7 +99,7 @@
         header: true,
         complete: function (data) {
 
-          // // data is accessible to us here
+          //  data is accessible to us here
            //console.log('data: ', data);
 
           // note that counties is also accessible here!
@@ -108,7 +108,7 @@
         }
       }); // end of Papa.parse()
 
-//console.log(quads);
+// console.log(quads);
 
     }); // end of $.getJSON()
     function processData(quads, data) {
@@ -143,12 +143,12 @@
         }
       });
 
-//       var breaks = chroma.limits(rates, 'q', 5);
+      // var breaks = chroma.limits(rates, 'q', 5);
 
-//       //create colorize function
-//       var colorize = chroma.scale(chroma.brewer.OrRd).classes(breaks);
+      // //create colorize function
+      // var colorize = chroma.scale(chroma.brewer.OrRd).classes(breaks);
 
-//       //console.log(colorize(15));
+      // console.log(colorize(15));
 
        drawMap(quads);
   }
@@ -169,6 +169,34 @@
         }
    
       }).addTo(map);
+
+      function retrieveInfo(dataLayer) {
+
+        // hide info initially
+        var info = $('#info').hide();
+
+        // detect quads on mouseover
+        dataLayer.on('mouseover', function(e) {
+      
+
+        
+      
+        info.show();
+        
+        // access properties of the target layer
+        var props = e.layer.feature.properties
+        
+        //populate HTML elements with relevant info
+        $('info span').html(props.QUAD24NAME);
+
+      // raise opacity level as visual affordance
+      e.layer.setStyle({
+        fillOpacity: .6
+      });
+
+
+      })
+    }
 
 
       // first set the zoom/center to the dataLayer's extent
