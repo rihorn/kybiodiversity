@@ -99,8 +99,6 @@
     $.getJSON("data/eoQuads.json", function (data) {
 
       drawMap(data);
-      //console.log(data);
-
     }); // end of $.getJSON()
  
 
@@ -115,15 +113,18 @@
             fillOpacity: 1,
             fillColor: '#1f78b4'
           };
-        }
+        }, 
 
 
-     }).addTo(map);
+   }).addTo(map);
+
 
 
       //first set the zoom/center to the dataLayer's extent
      map.fitBounds(dataLayer.getBounds());
 
+
+  } // end function drawMap
   </script>
 
 
