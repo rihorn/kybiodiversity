@@ -101,7 +101,7 @@
   <script>
     L.mapbox.accessToken =
       'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
-    var map = L.mapbox.map('map', 'mapbox.outdoors', {
+    var map = L.mapbox.map('map', 'mapbox.pirates', {
       zoomSnap: .1,
       center: [37.6438332, -85.6487252],
       zoom: 7,
@@ -125,9 +125,9 @@
       var dataLayer = L.geoJson(data, {
         style: function (feature) {
           return {
-            color: 'black',
+            color: 'red',
             weight: 1,
-            fillOpacity: 1,
+            fillOpacity: .5,
             fillColor: '#1f78b4'
           };
         },
