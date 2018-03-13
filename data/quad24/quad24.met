@@ -1,0 +1,488 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: U.S. Geological Survey
+      Publication_Date: 200412
+      Title: USGS map quadrangles
+      Geospatial_Data_Presentation_Form: map
+      Publication_Information:
+        Publication_Place: Reston, VA
+        Publisher: U.S. Geological Survey
+      Online_Linkage:
+  Description:
+    Abstract:
+      USGS map quandrangle boundaries with names and unique identifiers
+      for the 1:24,000 (7.5 minute) quadrangles.  Additional attributes
+      provide unique identifiers and hierarchical relationships between
+      these quadrangles and the enclosing 1:100,000 (30 x 60 minute) and
+      1:250,000 (1 x 2 degree) quadrangles.
+    Purpose:
+      The data set is intended to facilitate georeferencing scientific
+      sampling localities by providing a named and coded reference system
+      with which some people may already be familiar.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Multiple_Dates/Times:
+        Single_Date/Time:
+          Calendar_Date: 20020204
+        Single_Date/Time:
+          Calendar_Date: 200412
+    Currentness_Reference: Early reference is the last-modified date of a file that might have been the source of these data; later reference is the last modified date for these data.
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: As needed
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -160.283342
+      East_Bounding_Coordinate: -66.874999
+      North_Bounding_Coordinate: 49.499996
+      South_Bounding_Coordinate: 18.873871
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: USGS Thesaurus
+      Theme_Keyword: geospatial datasets
+      Theme_Keyword: gazetteers
+      Theme_Keyword: culture and demographics
+      Theme_Keyword: maps and atlases
+    Theme:
+      Theme_Keyword_Thesaurus: Alexandria Digital Library Feature Type Thesaurus
+      Theme_Keyword: map quadrangle regions
+    Place:
+      Place_Keyword_Thesaurus: none
+      Place_Keyword: Conterminous United States
+  Access_Constraints: none
+  Use_Constraints: none
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Peter N Schweitzer
+        Contact_Organization: U.S. Geological Survey, ER
+      Contact_Position: Geologist
+      Contact_Address:
+        Address_Type: mailing address
+        Address:
+          Mail Stop 954
+          12201 Sunrise Valley Drive
+        City: Reston
+        State_or_Province: VA
+        Postal_Code: 20192
+        Country: USA
+      Contact_Voice_Telephone: 703-648-6533
+      Contact_Facsimile_Telephone: 703-648-6252
+      Contact_Electronic_Mail_Address: pschweitzer@usgs.gov
+  Browse_Graphic:
+  Data_Set_Credit: Jeff Grossman created the coding scheme relating quadrangles of various scales
+  Native_Data_Set_Environment: Originally creating using ArcView 3.3
+Data_Quality_Information:
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Vector
+  Point_and_Vector_Object_Information:
+    SDTS_Terms_Description:
+      SDTS_Point_and_Vector_Object_Type: GT-polygon composed of chains
+      Point_and_Vector_Object_Count: 53984
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Geographic:
+      Latitude_Resolution: 0.125
+      Longitude_Resolution: 0.125
+      Geographic_Coordinate_Units: Decimal degrees
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: Geodetic Reference System 80
+      Semi-major_Axis: 6378137
+      Denominator_of_Flattening_Ratio: 298.257
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: quad24.dbf
+      Entity_Type_Definition: Quadrangle
+    Attribute:
+      Attribute_Label: QUAD24_ID
+      Attribute_Definition: Unique integer identifier, not otherwise meaningful
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 1
+          Range_Domain_Maximum: 54079
+          Attribute_Units_of_Measure: nominal
+          Attribute_Measurement_Resolution: 1
+    Attribute:
+      Attribute_Label: Q24CODE
+      Attribute_Definition:
+        Unique meaningful code of the form AABBBCCXY, where AA is the 2-digit
+        integer north latitude and BBB the integer west longitude of the
+        northwest corner of the quadrangle, CC a quadrant designation (NE,SE,
+        NW,SE, with a few other possible values), X is typically a letter
+        from A through H and Y a number from 1 through 4.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: The codes are all distinct.
+    Attribute:
+      Attribute_Label: Q100COD
+      Attribute_Definition:
+        Unique identifier for the 1:100,000-scale quadrangle of which this
+        1:24,000-scale quadrangle is a part.  The value is a subset of that
+        given in Q24CODE, of the form AABBBCC, where AA is the 2-digit
+        integer north latitude and BBB the integer west longitude of the
+        northwest corner of the quadrangle, CC a quadrant designation (NE,SE,
+        NW,SE, with a few other possible values).
+    Attribute:
+      Attribute_Label: Q250COD
+      Attribute_Definition:
+        Unique identifier for the 1:250,000-scale quadrangle of which this
+        1:24,000-scale quadrangle is a part.  The value is a subset of that
+        given in Q24CODE, of the form AABBB, where AA is the 2-digit
+        integer north latitude and BBB the integer west longitude of the
+        northwest corner of the quadrangle.
+    Attribute:
+      Attribute_Label: QUAD24NAME
+      Attribute_Definition: Name of the 1:24,000-scale quadrangle map.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Place names not otherwise abbreviated.
+    Attribute:
+      Attribute_Label: QUAD24NAM2
+      Attribute_Definition:
+        Name of the 1:24,000-scale quadrangle map followed by the 2-letter
+        abbreviation(s) of the state or states the quad subtends.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Place names not otherwise abbreviated.
+    Attribute:
+      Attribute_Label: QUAD100NAM
+      Attribute_Definition: Name of the 1:100,000-scale quadrangle map.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Place names not otherwise abbreviated.
+    Attribute:
+      Attribute_Label: QUAD250NAM
+      Attribute_Definition: Name of the 1:250,000-scale quadrangle map.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Place names not otherwise abbreviated.
+    Attribute:
+      Attribute_Label: STATE1
+      Attribute_Definition: 2-letter abbreviation of one of the states the quadrangle overlaps.
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name:
+            Codes for the Identification of the States, the District of Columbia
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington,
+            DC, National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce
+    Attribute:
+      Attribute_Label: STATE2
+      Attribute_Definition: 2-letter abbreviation of one of the states the quadrangle overlaps.
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name:
+            Codes for the Identification of the States, the District of Columbia
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington,
+            DC, National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce
+    Attribute:
+      Attribute_Label: STATE3
+      Attribute_Definition: 2-letter abbreviation of one of the states the quadrangle overlaps.
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name:
+            Codes for the Identification of the States, the District of Columbia
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington,
+            DC, National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce
+    Attribute:
+      Attribute_Label: STATE4
+      Attribute_Definition: 2-letter abbreviation of one of the states the quadrangle overlaps.
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name:
+            Codes for the Identification of the States, the District of Columbia
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington,
+            DC, National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce
+    Attribute:
+      Attribute_Label: X
+      Attribute_Definition: Longitude value of the northwest corner of the quadrangle
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: -160.16000
+          Range_Domain_Maximum: -66.93750
+          Attribute_Units_of_Measure: decimal degrees
+          Attribute_Measurement_Resolution: 0.125
+    Attribute:
+      Attribute_Label: Y
+      Attribute_Definition: Latitude value of the northwest corner of the quadrangle
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 18.94000
+          Range_Domain_Maximum: 49.43750
+          Attribute_Units_of_Measure: decimal degrees
+          Attribute_Measurement_Resolution: 0.125
+    Attribute:
+      Attribute_Label: CORNER
+      Attribute_Definition:
+        Quadrant or part of the 1:250,000 quadrangle in which this 1:24,000
+        quadrangle lies.  In some coastal areas these do not correspond to
+        compass directions but represent some other division of the space.
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: CE
+          Enumerated_Domain_Value_Definition: Center east (coastal area)
+        Enumerated_Domain:
+          Enumerated_Domain_Value: CW
+          Enumerated_Domain_Value_Definition: Center west (coastal area)
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NE
+          Enumerated_Domain_Value_Definition: Northeast quarter
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NN
+          Enumerated_Domain_Value_Definition: North half of north half (coastal area)
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NS
+          Enumerated_Domain_Value_Definition: North half of south half (coastal area)
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NW
+          Enumerated_Domain_Value_Definition: Northwest quarter
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NX
+          Enumerated_Domain_Value_Definition: North part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: NY
+          Enumerated_Domain_Value_Definition: North part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SE
+          Enumerated_Domain_Value_Definition: Southeast quarter
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SN
+          Enumerated_Domain_Value_Definition: South half of north half
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SS
+          Enumerated_Domain_Value_Definition: South half of south half
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SW
+          Enumerated_Domain_Value_Definition: Southwest quarter
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SX
+          Enumerated_Domain_Value_Definition: South part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: SY
+          Enumerated_Domain_Value_Definition: South part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: XE
+          Enumerated_Domain_Value_Definition: East part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: XW
+          Enumerated_Domain_Value_Definition: West part of a quad in a coastal area
+        Enumerated_Domain:
+          Enumerated_Domain_Value: YW
+          Enumerated_Domain_Value_Definition: West part of a quad in a coastal area
+    Attribute:
+      Attribute_Label: CELL
+      Attribute_Definition:
+        Two-letter (or more commonly a letter followed by a number) code
+        indicating the position within the 1:100,000-scale quadrangle of the
+        1:24,000-scale quadrangle.  Cell A1 is in the northwest corner of the
+        larger quadrangle; cell A4 is in the southwest corner, cell H1 is in
+        the northeast corner, and cell H4 is in the southeast corner.
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A7
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: A8
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: B7
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: C7
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: D6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: E6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F5
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: F6
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: G1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: G2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: G3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: G4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: H1
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: H2
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: H3
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: H4
+          Enumerated_Domain_Value_Definition:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: X1
+          Enumerated_Domain_Value_Definition:
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Peter N Schweitzer
+        Contact_Organization: U.S. Geological Survey, ER
+      Contact_Position: Geologist
+      Contact_Address:
+        Address_Type: mailing address
+        Address:
+          Mail Stop 954
+          12201 Sunrise Valley Drive
+        City: Reston
+        State_or_Province: VA
+        Postal_Code: 20192
+        Country: USA
+      Contact_Voice_Telephone: 703-648-6533
+      Contact_Facsimile_Telephone: 703-648-6252
+      Contact_Electronic_Mail_Address: pschweitzer@usgs.gov
+  Resource_Description: QUAD24
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: shapefile
+        Format_Version_Number: 1.0
+        Format_Information_Content: Quadrangle boundaries, names, and identifying codes
+        File_Decompression_Technique: unzip
+        Transfer_Size:
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: http://tin.er.usgs.gov/reference/quad24.zip
+    Fees: none
+Metadata_Reference_Information:
+  Metadata_Date: 20060523
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Peter N Schweitzer
+        Contact_Organization: U.S. Geological Survey, ER
+      Contact_Position: Geologist
+      Contact_Address:
+        Address_Type: mailing address
+        Address:
+          Mail Stop 954
+          12201 Sunrise Valley Drive
+        City: Reston
+        State_or_Province: VA
+        Postal_Code: 20192
+        Country: USA
+      Contact_Voice_Telephone: 703-648-6533
+      Contact_Facsimile_Telephone: 703-648-6252
+      Contact_Electronic_Mail_Address: pschweitzer@usgs.gov
+  Metadata_Standard_Name: Content Standard for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
