@@ -115,7 +115,7 @@
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
 
-    var attributeValue = "taxonomy";
+    var attributeValue = "Animal";
 
     $.getJSON("data/eoKyQuads.json", function (data) {
 
@@ -131,7 +131,7 @@
           return {
             color: 'blue',
             weight: 1,
-            fillOpacity: .5,
+            fillOpacity: .9,
             fillColor: '#1f78b4'
           };
         },
@@ -180,9 +180,10 @@
 
         var props = layer.feature.properties;
 
+
         // set the fill color of layer based on its normalized data value
         layer.setStyle({
-          fillColor: getColor(props[attributeValue], breaks)
+          fillColor: getColor(+props[attributeValue], breaks)
         });
 
         // assemble string sequence of info for tooltip (end line break with + operator)
@@ -205,7 +206,7 @@
       // loop through all the quads
       dataLayer.eachLayer(function (layer) {
         var value = layer.feature.properties[attributeValue];
-        values.push(value); // push the value for each layer into the Array
+        values.push(+value); // push the value for each layer into the Array
 
       });
       // determine similar clusters
@@ -217,7 +218,7 @@
       //return array of arrays, e.g., [[0,5], [6, 10], etc]
       return breaks;
     }
-
+ 
     function getColor(d, breaks) {
       // function accepts a single  data attribute value
       // and uses a series of conditional statements to determine which
