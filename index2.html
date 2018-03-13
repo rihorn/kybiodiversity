@@ -84,30 +84,6 @@
   
   <script>
 
-           // map options
-
-        // var options = {
-        //     //scrollWheelZoom: false,
-        //     zoomSnap: .1,
-        //     center: [37.6438332, -85.6487252],
-        //     zoom: 7,
-        //     //dragging: false,
-        //   // zoomControl: false
-        // }
-
-        // // create the Leaflet map
-        // var map = L.map('map', options);
-
-        // // request tiles and add to map
-        // var tiles = L.tileLayer('http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.{ext}', {
-        //     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        //     subdomains: 'abcd',
-        //     ext: 'png'
-        // }).addTo(map);
-
-
-
-
     L.mapbox.accessToken =
       'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
     var map = L.mapbox.map('map', 'mapbox.outdoors', {
@@ -116,7 +92,7 @@
       zoom: 7,
       minZoom: 1,
       maxZoom: 20,
-      fillOpacity: .3
+      fillOpacity: 1
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
 
@@ -136,59 +112,18 @@
           return {
             color: 'black',
             weight: 1,
-            fillOpacity: .5,
+            fillOpacity: 1,
             fillColor: '#1f78b4'
           };
-        }, 
-    
-        
-        onEachFeature: function (feature, layer) {
+        }
 
-          // when mousing over a layer
-          layer.on('mouseover', function () {
 
-            // change the stroke color and bring that element to the front
-            layer.setStyle({
-              color: '#ff6e00'
-            }).bringToFront();
-          });
-
-          // on mousing off layer
-          layer.on('mouseout', function () {
-
-            // reset the layer style to its original stroke color
-            layer.setStyle({
-              color: '#dddddd'
-            });
-          });
-          //console.log(dataLayer);
-        }          
-     
-
-      }).addTo(map);
-
-      // map.fitBounds(dataLayer.getBounds(), {
-      //   //paddingTopLeft: [25, 25] // push off top left for sake of legend
-      // });
-
+     }).addTo(map);
 
 
       //first set the zoom/center to the dataLayer's extent
-      //map.fitBounds(dataLayer.getBounds());
+     map.fitBounds(dataLayer.getBounds());
 
-
-      // then back the zoom level off a bit (since we're viewing the map full screen)
-      //map.setZoom(map.getZoom() - .2);
-
-
-
-      // function updateMap() {}
-
-      // function drawLegend() {}
-
-      // function createSliderUI() {
-
-    } // end createSliderUI()
   </script>
 
 
