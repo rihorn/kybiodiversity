@@ -9,8 +9,8 @@
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
   <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
   <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
 
 
   <style>
@@ -20,6 +20,12 @@
 
     h1 {
       color: orange;
+    }
+
+    .leaflet-tooltip {
+      min-width: 140px;
+      font-size: 140%;
+      white-space: normal;
     }
   </style>
 
@@ -68,6 +74,16 @@
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
 
+      <div id='ui-controls'>
+        <label>Choose Taxonomy:</label>
+        <select id="taxonomy-selector">
+          <option value="Animals" selected>Animals</option>
+          <option value="Plants">+ Plants</option>
+          <option value="Communities">Communities</option>
+          <option value="totals">Combined</option>
+        </select>
+      </div>
+      <!-- end ui-controls -->
 
     </div>
   </div>
@@ -81,9 +97,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
-  
-  <script>
 
+  <script>
     L.mapbox.accessToken =
       'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
     var map = L.mapbox.map('map', 'mapbox.outdoors', {
@@ -96,11 +111,13 @@
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
 
+    var attributeValue = "taxonomy";
+
     $.getJSON("data/eoKyQuads.json", function (data) {
 
       drawMap(data);
     }); // end of $.getJSON()
- 
+
 
     function drawMap(data) {
 
@@ -113,18 +130,73 @@
             fillOpacity: 1,
             fillColor: '#1f78b4'
           };
-        }, 
+        },
 
 
-   }).addTo(map);
+      }).addTo(map);
 
 
 
       //first set the zoom/center to the dataLayer's extent
-     map.fitBounds(dataLayer.getBounds());
+      map.fitBounds(dataLayer.getBounds());
 
 
-  } // end function drawMap
+    } // end function drawMap
+
+
+    function updateMap(dataLayer) {
+      // get the class breaks for the current data attribute
+      //	var breaks = getClassBreaks(dataLayer);
+
+      //updateLegend(breaks); // add the legend to the map using breaks
+
+      // loop through each county layer to update the color and tooltip info
+      // dataLayer.eachLayer(function (layer) {
+
+      //var props = layer.feature.properties;
+
+      // 	// set the fill color of layer based on its normalized data value
+      // 	layer.setStyle({
+      // 		fillColor: getColor(props[attributeValue] /
+      // 			props[normValue], breaks)
+      // 	});
+
+      // assemble string sequence of info for tooltip (end line break with + operator)
+      var tooltipInfo = props["quad24name"];
+
+      // bind a tooltip to layer with county-specific information
+      layer.bindTooltip(tooltipInfo, {
+        // sticky property so tooltip follows the mouse
+        sticky: true,
+        tooltipAnchor: [200, 200]
+      });
+
+    }
+
+
+    function addUi(dataLayer) {
+      // create the slider control
+      var selectControl = L.control({
+        position: 'topleft'
+      });
+
+      // when control is added
+      selectControl.onAdd = function (map) {
+        // get the element with id attribute of ui-controls
+        return L.DomUtil.get("ui-controls");
+      }
+      // add the control to the map
+      selectControl.addTo(map);
+
+
+      $('select[id="taxonomy-selector"]').change(function () {
+        // store reference to currently selected value
+        attributeValue = this.value;
+
+        // call updateMap function
+        updateMap(dataLayer);
+      });
+    }
   </script>
 
 
