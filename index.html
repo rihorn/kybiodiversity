@@ -129,13 +129,33 @@
       var dataLayer = L.geoJson(data, {
         style: function (feature) {
           return {
-            color: 'red',
+            color: 'blue',
             weight: 1,
             fillOpacity: .5,
             fillColor: '#1f78b4'
           };
         },
 
+        onEachFeature: function (feature, layer) {
+
+          // when mousing over a layer
+          layer.on('mouseover', function () {
+
+            // change the stroke color and bring that element to the front
+            layer.setStyle({
+              color: '#ff6e00'
+            }).bringToFront();
+          });
+
+          // on mousing off layer
+          layer.on('mouseout', function () {
+
+            // reset the layer style to its original stroke color
+            layer.setStyle({
+              color: '#1f78b4'
+            });
+          });
+        }
 
       }).addTo(map);
 
@@ -144,8 +164,39 @@
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
 
+      // call the update function
+      updateMap(dataLayer);
+
 
     } // end function drawMap
+
+    function updateMap(dataLayer) {
+
+      // get the class breaks for the current data attribute
+      var breaks = getClassBreaks(dataLayer);
+
+      // loop through each county layer to update the color and tooltip info
+      dataLayer.eachLayer(function (layer) {
+
+        var props = layer.feature.properties;
+
+        // set the fill color of layer based on its normalized data value
+        layer.setStyle({
+          fillColor: getColor(props[attributeValue], breaks)
+        });
+
+        // assemble string sequence of info for tooltip (end line break with + operator)
+        var tooltipInfo = "<b>" + "QUAD: " +  props["quad24name"];
+
+        // bind a tooltip to layer with county-specific information
+        layer.bindTooltip(tooltipInfo, {
+          // sticky property so tooltip follows the mouse
+          sticky: true,
+          tooltipAnchor: [200, 200]
+        });
+      });
+    }
+
 
     function getClassBreaks(dataLayer) {
       // create empty Array for storing values
@@ -153,7 +204,9 @@
 
       // loop through all the quads
       dataLayer.eachLayer(function (layer) {
+        var value = layer.feature.properties[attributeValue];
         values.push(value); // push the value for each layer into the Array
+
       });
       // determine similar clusters
       var clusters = ss.ckmeans(values, 5);
