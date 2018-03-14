@@ -131,7 +131,7 @@
           return {
             color: 'blue',
             weight: 1,
-            fillOpacity: .9,
+            fillOpacity: .7,
             fillColor: '#1f78b4'
           };
         },
@@ -227,15 +227,15 @@ console.log(breaks);
       // and uses a series of conditional statements to determine which
       // which color value to return to return to the function caller
       if (d <= breaks[0][1]) {
-        return '#f1eef6';
+        return '#06d6c8';
       } else if (d <= breaks[1][1]) {
-        return '#bdc9e1';
+        return '#06d636';
       } else if (d <= breaks[2][1]) {
-        return '#74a9cf';
+        return '#2fd606';
       } else if (d <= breaks[3][1]) {
-        return '#2b8cbe'
+        return '#d6cb06'
       } else if (d <= breaks[4][1]) {
-        return '#045a8d'
+        return '#d62206'
       }
     }
   </script>
