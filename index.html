@@ -135,27 +135,27 @@
             fillColor: '#1f78b4'
           };
         },
-// <!-- 
-//         onEachFeature: function (feature, layer) {
+        // <!-- 
+        //         onEachFeature: function (feature, layer) {
 
-//           // when mousing over a layer
-//           layer.on('mouseover', function () {
+        //           // when mousing over a layer
+        //           layer.on('mouseover', function () {
 
-//             // change the stroke color and bring that element to the front
-//             layer.setStyle({
-//               color: '#ff6e00'
-//             }).bringToFront();
-//           });
+        //             // change the stroke color and bring that element to the front
+        //             layer.setStyle({
+        //               color: '#ff6e00'
+        //             }).bringToFront();
+        //           });
 
-//           // on mousing off layer
-//           layer.on('mouseout', function () {
+        //           // on mousing off layer
+        //           layer.on('mouseout', function () {
 
-//             // reset the layer style to its original stroke color
-//             layer.setStyle({
-//               color: '#1f78b4'
-//             });
-//           });
-//         } -->
+        //             // reset the layer style to its original stroke color
+        //             layer.setStyle({
+        //               color: '#1f78b4'
+        //             });
+        //           });
+        //         } -->
 
       }).addTo(map);
 
@@ -166,6 +166,7 @@
 
       // call the update function
       updateMap(dataLayer);
+      addUi(dataLayer);
 
 
     } // end function drawMap
@@ -186,8 +187,8 @@
         });
 
         // assemble string sequence of info for tooltip (end line break with + operator)
-        var tooltipInfo = "QUAD: " +  props["quad24name"] + "<br>" + "Animals: " 
-           + props["Animals"];
+        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "Animals: "
+          + props["Animals"];
 
         // bind a tooltip to layer with county-specific information
         layer.bindTooltip(tooltipInfo, {
@@ -215,13 +216,13 @@
       var breaks = clusters.map(function (cluster) {
         return [cluster[0], cluster.pop()];
       });
-console.log(breaks);
+      console.log(breaks);
 
       //return array of arrays, e.g., [[0,5], [6, 10], etc]
       return breaks;
 
     }
- 
+
     function getColor(d, breaks) {
       // function accepts a single  data attribute value
       // and uses a series of conditional statements to determine which
@@ -238,6 +239,36 @@ console.log(breaks);
         return '#ff0000'
       }
     }
+
+
+    function addUi(dataLayer) {
+      // create the slider control
+      var selectControl = L.control({
+        position: 'topleft'
+      });
+
+      // when control is added
+      selectControl.onAdd = function (map) {
+        // get the element with id attribute of ui-controls
+        return L.DomUtil.get("ui-controls");
+      }
+      // add the control to the map
+      selectControl.addTo(map);
+
+
+      $('select[id="taxonomy-selector"]').change(function () {
+        // store reference to currently selected value
+        attributeValue = this.value;
+
+        // call updateMap function
+        updateMap(dataLayer);
+      });
+    }
+
+
+
+
+
   </script>
 
 
