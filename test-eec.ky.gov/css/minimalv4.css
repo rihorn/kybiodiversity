@@ -1,0 +1,1006 @@
+/* _lcid="1033" _version="15.0.4420"
+_LocalBinding */
+html{
+min-height:100%;
+}
+body{
+font-family:Verdana,Arial,sans-serif;
+font-size:8pt;
+/* [ReplaceColor(themeColor:"Dark2-Darker")] */ color:#676767;
+/* [ReplaceColor(themeColor:"Light1")] */ background-color:#fff;
+margin:0px;
+padding:0px;
+}
+body.v4master{
+height:100%;
+width:100%;
+overflow:hidden;
+}
+body #aspnetForm{
+height:100%;
+}
+a:link{
+/* [ReplaceColor(themeColor:"Hyperlink")] */ color:#0072BC;
+text-decoration:none;
+}
+a:visited{
+/* [ReplaceColor(themeColor:"FollowedHyperlink")] */ color:#b10069;
+text-decoration:none;
+}
+.s4-floatleft{
+float:left;
+}
+.s4-pr{
+width:100%;
+}
+.s4-widecontentarea{
+width:100%;
+}
+.s4-lp,.s4-lpi{
+padding:2px 10px 2px 5px;
+}
+.s4-rp{
+float:right;
+padding:2px 10px 2px 5px;
+}
+.s4-rp div,.s4-lpi div{
+display:inline;
+}
+.s4-die{
+display:none;
+}
+.ms-hide{
+display:none;
+}
+.s4-devdashboard{
+display:inline-block;
+width:18px;
+}
+.ms-HoverCellInActive,.ms-SpLinkButtonInActive
+{
+border:none;
+margin:1px;
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c4c4c;
+vertical-align:top;
+background-color:transparent;
+}
+.ms-HoverCellActive,.ms-SpLinkButtonActive
+{
+/* [ReplaceColor(themeColor:"Accent5-Medium")] */ border:#6f9dd9 1px solid;
+vertical-align:top;
+/* [ReplaceColor(themeColor:"Accent4")] */ background-color:#ffbb47;
+/* [RecolorImage(themeColor:"Accent6-Darker",method:"Tinting",includeRectangle:{x:0,y:403,width:1,height:22})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -403px;
+}
+.ms-HoverCellActiveDark
+{
+/* [RecolorImage(themeColor:"Accent6-Darker",method:"Tinting",includeRectangle:{x:0,y:403,width:1,height:22})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -403px;
+/* [ReplaceColor(themeColor:"Light1-Darkest")] */ border:solid 1px #868686;
+/* [ReplaceColor(themeColor:"Accent4")] */ background-color:#ffbb47;
+vertical-align:top;
+}
+.ms-SpLinkButtonInActive,.ms-SpLinkButtonActive
+{
+padding:1px 1px 1px 3px;
+}
+.ms-SpLinkButtonActive a,.ms-SpLinkButtonActive a:hover{
+/* [ReplaceColor(themeColor:"Dark1")] */ color:#000000;
+text-decoration:none;
+}
+.ms-SPLink
+{
+font-family:'Tahoma','Lucida Grande',Verdana,Arial,sans-serif;
+font-size:0.8em;
+/* [ReplaceColor(themeColor:"Accent3-Darker")] */ color:#1A70B9;
+}
+.ms-SPLink a:link,.ms-SPLink a:visited
+{
+/* [ReplaceColor(themeColor:"Accent3-Darker")] */ color:#1A70B9;
+text-decoration:none;
+}
+.ms-siteactionsmenu{
+display:inline-block;
+vertical-align:top;
+font-size:8pt;
+}
+.ms-siteactionsmenuinner,.ms-siteactionsmenuhover{
+border-width:1px;
+border-style:solid;
+margin-right:3px;
+padding:3px 4px 0px 2px;
+height:18px;
+display:inline-block;
+font-family:"Segoe UI",Tahoma,Verdana,sans-serif;
+}
+.ms-siteactionsmenuinner{
+/* [ReplaceColor(themeColor:"Dark2")] */ border-color:#21374C;
+/* [ReplaceColor(themeColor:"Dark2")] */ border-top-color:#394f63;
+/* [RecolorImage(themeColor:"Dark2-Lighter",method:"Filling",includeRectangle:{x:0,y:467,width:1,height:11})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -467px;
+/* [ReplaceColor(themeColor:"Dark2")] */ background-color:#21374c;
+}
+.v4master .ms-siteactionsmenuinner{
+border-color:transparent;
+background:transparent none no-repeat;
+}
+.ms-siteactionsmenuinner .ms-menu-a,.ms-siteactionsmenuhover .ms-menu-a{
+margin-right:4px;
+}
+.ms-siteactionsmenuhover{
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-color:#8b929a;
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Filling",includeRectangle:{x:0,y:489,width:1,height:11})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -489px;
+/* [ReplaceColor(themeColor:"Dark2",themeShade:"0.8")] */ background-color:#21374c;
+}
+.ms-siteactionsmenuinner > a,.ms-siteactionsmenuhover > a{
+display:inline-block;
+}
+.ms-siteactionsmenu > span > a{
+/* [ReplaceColor(themeColor:"Light1",themeTint:"0.9")] */ color:#fff;
+}
+.ms-siteactionsmenu > span > a > span{
+display:inline-block;
+margin:1px 0px 0px 2px;
+}
+.ms-siteactionsmenu > span > a > img{
+vertical-align:top;
+}
+.ms-siteactionsmenu .ms-viewselector-arrow{
+display:inline-block;
+margin:7px 0px 1px 0px;
+vertical-align:top;
+}
+.s4-siteactions a:link,.s4-siteactions a:visited{
+font-weight:bold;
+/* [ReplaceColor(themeColor:"Light1")] */ color:white;
+}
+.ms-viewselector-arrow{
+vertical-align:middle;
+}
+.ms-menu-althov .ms-menu-hovarw{
+display:none !important;
+}
+.ms-menu-althov-active .ms-menu-stdarw{
+display:none !important;
+}
+.ms-menu-althov-active span.ms-menu-hovarw{
+display:inline-block !important;
+}
+.ms-menu-althov-active .ms-menu-hovarw{
+display:inline;
+}
+.ms-welcomeMenu{
+padding:2px 5px 3px;
+margin:0px 3px;
+font-size:1em;
+font-family:Verdana,sans-serif;
+border:1px solid transparent;
+display:inline-block;
+}
+.ms-welcomeMenu a:link{
+/* [ReplaceColor(themeColor:"Light1",themeTint:"0.9")] */ color:#fff;
+}
+.ms-welcomeMenu a:hover{
+text-decoration:none !important;
+}
+.ms-welcomeMenu.ms-SpLinkButtonActive{
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-color:#8b929a;
+/* [RecolorImage(themeColor:"Dark2-Lightest",includeRectangle:{x:0,y:489,width:1,height:11})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -489px;
+/* [ReplaceColor(themeColor:"Dark2",themeShade:"0.8")] */ background-color:#21374c;
+}
+.ms-welcomeMenu.ms-SpLinkButtonActive a:link{
+/* [ReplaceColor(themeColor:"Light1",themeTint:"0.9")] */ color:#fff;
+}
+.ms-welcomeMenu .ms-menu-a{
+margin-right:5px;
+}
+.ms-hidden,a.ms-skip,a:hover.ms-skip,a:visited.ms-skip,a.ms-TurnOnAcc,a.ms-SkiptoMainContent,a.ms-SkiptoNavigation{
+position:absolute;
+top:-2000px;
+width:1px;
+height:1px;
+overflow:hidden;
+z-index:3;
+word-wrap:normal;
+}
+a:active.ms-skip,a:focus.ms-skip,a:active.ms-TurnOnAcc,a:focus.ms-TurnOnAcc,a.ms-TurnOffAcc,a:active.ms-SkiptoMainContent,a:focus.ms-SkiptoMainContent,a:active.ms-SkiptoNavigation,a:focus.ms-SkiptoNavigation{
+position:absolute;
+top:2px;
+width:auto;
+height:auto;
+background-color:white;
+border-color:black;
+border-width:1px;
+border-style:solid;
+color:black;
+padding-top:2px;
+padding-bottom:2px;
+padding-left:4px;
+padding-right:4px;
+z-index:12;
+}
+a.ms-skip,a.ms-TurnOnAcc{
+left:2px;
+}
+a.ms-TurnOffAcc{
+right:150px;
+}
+a.ms-SkiptoMainContent{
+right:2px;
+}
+a.ms-SkiptoNavigation{
+right:50%;
+}
+span#TurnOffAccessibility a.ms-acclink{
+width:auto;
+height:1.1em;
+background-color:white;
+border-color:black;
+border-width:1px;
+border-style:solid;
+padding-top:2px;
+padding-bottom:2px;
+padding-left:4px;
+padding-right:4px;
+color:black;
+position:absolute;
+z-index:3;
+top:2px;
+right:2px;
+}
+.ms-dlgOverlay
+{
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:100%;
+filter:alpha(opacity=70);-ms-filter:"alpha(opacity=70)";opacity:0.7;
+/* [ReplaceColor(themeColor:"Accent1",themeShade:"0.10")] */ background-color:#182738;
+display:none;
+}
+.ms-dlgContent
+{
+position:absolute;
+/* [ReplaceColor(themeColor:"Light1")] */ background-color:#ffffff;
+display:none;
+/* [ReplaceColor(themeColor:"Dark2")] */ border:1px solid #161d25;
+}
+.ms-dlgBorder
+{
+/* [ReplaceColor(themeColor:"Accent1")] */ border:1px solid #0072bc;
+}
+.ms-dlgTitle
+{
+/* [RecolorImage(themeColor:"Light2",includeRectangle:{x:0,y:51,width:1,height:21})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -51px;
+/* [ReplaceColor(themeColor:"Dark2",themeShade:"0.90")] */ background-color:#21374c;
+height:32px;
+white-space:nowrap;
+cursor:default;
+overflow:hidden;
+}
+.ms-dlgTitleText
+{
+font-family:Verdana;
+font-size:1.3em;
+line-height:1.2;
+font-weight:normal;
+padding-left:10px;
+padding-top:7px;
+/* [ReplaceColor(themeColor:"Light1",themeTint:"0.9")] */ color:#ffffff;
+float:left;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+.ms-dlgTitleBtns
+{
+float:right;
+padding-top:2px;
+padding-right:2px;
+}
+.ms-dlgFrameContainer
+{
+overflow:auto;
+}
+.ms-dlgFrame
+{
+width:100%;
+height:100%;
+border:none;
+}
+.ms-dlgCloseBtn span
+{
+cursor:pointer;
+border:1px solid transparent;
+}
+.ms-dlgCloseBtnImg
+{
+border:0px;
+}
+.ms-dlgCloseBtn span:hover
+{
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-color:#8b929a;
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Filling",includeRectangle:{x:0,y:489,width:1,height:11})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -489px;
+}
+.ms-dlgErrList
+{
+list-style-type:none;
+margin-left:0px;
+}
+.ms-dlgErrItem
+{
+display:inline;
+padding-right:10px;
+}
+.ms-dlgLoadingText
+{
+text-align:left;
+font-size:1em;
+padding-left:5px;
+width:100%;
+/* [ReplaceColor(V4_THEMING_COLOR_DAR2)] */ color:#3b4f65;
+}
+/* _lcid="1033" _version="15.0.4420"
+_LocalBinding */
+.ms-SrvMenuUI
+{
+display:none;
+}
+.ms-MenuUIPopupBody
+{
+border:1px solid;
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-top-color:#a4aab4;
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-left-color:#a4aab4;
+/* [ReplaceColor(themeColor:"Dark2-Medium")] */ border-right-color:#7895ac;
+/* [ReplaceColor(themeColor:"Dark2-Medium")] */ border-bottom-color:#7895ac;
+margin:0px;
+padding:0px;
+}
+.ms-MenuUIPopupInner
+{
+border:1px solid;
+/* [ReplaceColor(themeColor:"Dark2-Lightest",themeTint:"0.95")] */ border-color:#ececec;
+border-top-color:transparent;
+border-left-color:transparent;
+}
+.ms-MenuUIPopupBody table
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+font-size:100%;
+margin:0px;
+padding:0px;
+}
+.ms-MenuUIPopupBody div
+{
+cursor:pointer;
+}
+.ms-MenuUI,.ms-MenuUILarge,.ms-MenuUIRtL,.ms-MenuUILargeRtL
+{
+/* [ReplaceColor(themeColor:"Light1")] */ background-color:#fff;
+background-repeat:repeat-y;
+cursor:pointer;
+}
+.ms-MenuUI,.ms-MenuUILarge
+{
+background-position:left;
+}
+.ms-MenuUIRtL,.ms-MenuUILargeRtL
+{
+background-position:right;
+}
+.ms-MenuUI
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGrad.png?rev=23");
+}
+.ms-MenuUILarge
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradLarge.png?rev=23");
+width:250px;
+}
+.ms-MenuUIRtL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradRtl.png?rev=23");
+}
+.ms-MenuUILargeRtL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradLargeRtl.png?rev=23");
+width:250px;
+}
+.ms-MenuUIDisabled span
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#666;
+}
+.ms-MenuUIItemTableCell,.ms-MenuUIItemTableCellCompact
+{
+padding:2px;
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+font-size:8pt;
+text-decoration:none;
+}
+.ms-MenuUIItemTableCellCompact
+{
+padding:1px 2px 1px 2px;
+}
+.ms-MenuUIItemTableCell a,.ms-MenuUIItemTableCellHover a,.ms-MenuUIItemTableCellCompact a,.ms-MenuUIItemTableCellCompactHover a
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+text-decoration:none;
+}
+.ms-menuitemdescription
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#545454;
+}
+.ms-MenuUIItemTableCellHover,.ms-MenuUIItemTableCellCompactHover
+{
+padding:1px;
+/* [ReplaceColor(themeColor:"Dark2")] */ color:#003759 !important;
+text-decoration:none;
+}
+.ms-MenuUIItemTableCellCompactHover
+{
+padding:0px 1px 0px 1px;
+}
+.ms-MenuUIItemTableHover
+{
+/* [RecolorImage(themeColor:"Light1")] */ background:url("/_layouts/15/images/selbg.png?rev=23") repeat-x left top;
+/* [ReplaceColor(themeColor:"Accent1",themeTint:"0.15")] */ background-color:#ccebff;
+/* [ReplaceColor(themeColor:"Accent1-Lighter")] */ border:1px solid #91cdf2;
+/* [ReplaceColor(themeColor:"Accent1-Lightest")] */ border-top-color:#bde1f7;
+}
+.ms-MenuUIItemTableHover .ms-menuitemdescription
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+}
+.ms-MenuUIIcon,.ms-MenuUIIconRtL
+{
+height:16px;
+width:24px;
+}
+.ms-MenuUIIconLarge,.ms-MenuUIIconLargeRtl
+{
+height:16px;
+width:40px;
+}
+.ms-MenuUIIcon,.ms-MenuUIIconLarge
+{
+padding:
+0px 
+6px 
+0px 
+2px;
+}
+.ms-MenuUIIconRtL,.ms-MenuUIIconLargeRtl
+{
+padding:
+0px 
+2px 
+0px 
+6px;
+}
+.ms-MenuUILabel,.ms-MenuUILabelRtL,.ms-menuuilabelcompact,.ms-menuuilabelcompactRtl
+{
+font-size:8pt;
+width:100%;
+}
+.ms-MenuUILabel
+{
+padding:
+2px 
+0px 
+3px 
+6px;
+}
+.ms-MenuUILabelRtL
+{
+padding:
+2px 
+6px 
+3px 
+0px;
+}
+.ms-menuuilabelcompact{
+padding:1px 0px 1px 7px;
+}
+.ms-menuuilabelcompactRtl{
+padding:1px 7px 1px 0px;
+}
+.ms-MenuUISubmenuArrow
+{
+height:16px;
+width:16px;
+}
+.ms-MenuUISeparator,.ms-MenuUISeparatorRtL,.ms-MenuUISeparatorLarge,.ms-MenuUISeparatorLargeRtl
+{
+/* [ReplaceColor(themeColor:"Dark2-Lightest")] */ border-top:1px dashed #c5cacd;
+font-size:2px;
+height:2px;
+line-height:2px;
+}
+.ms-MenuUISeparator
+{
+margin:
+2px 
+0px 
+2px 
+26px;
+}
+.ms-MenuUISeparatorRtL
+{
+margin:
+2px 
+26px 
+2px 
+0px;
+}
+.ms-MenuUISeparatorLarge
+{
+margin:2px 0px 2px 42px;
+}
+.ms-MenuUISeparatorLargeRtl
+{
+margin:2px 42px 2px 0px;
+}
+.ms-MenuUICheckMark
+{
+background-image:url("/_layouts/15/images/ChkMrk.gif?rev=23");
+}
+.ms-MenuUIItemTableCellDisabled
+{
+/* [ReplaceColor(themeColor:"Light1-Medium")] */ color:#666;
+}
+div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div
+{
+font-weight:normal;
+height:auto;
+z-index:9999;
+white-space:normal;
+margin:0px;
+/* [ReplaceColor(themeColor:"Light1")] */ background-color:#fff;
+display:block;
+text-decoration:none;
+background-image:none;
+padding:0px;
+cursor:pointer;
+font-family:Verdana,Arial,sans-serif;
+}
+div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen
+{
+border:1px solid;
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-top-color:#a4aab4;
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-left-color:#a4aab4;
+/* [ReplaceColor(themeColor:"Dark2-Medium")] */ border-right-color:#7895ac;
+/* [ReplaceColor(themeColor:"Dark2-Medium")] */ border-bottom-color:#7895ac;
+}
+div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div
+{
+border:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL
+{
+width:254px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL
+{
+width:250px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL
+{
+list-style-type:none;
+margin:0px;
+padding:0px;
+background-repeat:repeat-y;
+border:1px solid;
+/* [ReplaceColor(themeColor:"Dark2-Lightest",themeTint:"0.95")] */ border-color:#ececec;
+border-top-color:transparent;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGrad.png?rev=23");
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradLarge.png?rev=23");
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradRtl.png?rev=23");
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL
+{
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Tinting")] */ background-image:url("/_layouts/15/images/MGradLargeRtl.png?rev=23");
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL
+{
+float:left;
+background-position:left center;
+border-left-color:transparent;
+padding-right:2px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL
+{
+float:right;
+background-position:right center;
+border-right-color:transparent;
+padding-left:2px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL li.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL li.ms-MenuUIULItem
+{
+float:left;
+width:100%;
+padding:0px;
+text-align:left;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL li.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL li.ms-MenuUIULItem
+{
+float:right;
+width:100%;
+padding:0px;
+text-align:right;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL div.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL div.ms-MenuUIULItemHover,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL div.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL div.ms-MenuUIULItemHover
+{
+float:left;
+width:100%;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL div.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL div.ms-MenuUIULItemHover,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL div.ms-MenuUIULItem,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL div.ms-MenuUIULItemHover
+{
+float:right;
+width:100%;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIULItem
+{
+border:1px solid transparent;
+background-color:transparent;
+margin:0px;
+outline:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIULItem a.ms-MenuUIULLink{
+/* [ReplaceColor(themeColor:"Dark2")] */ color:#003759 !important;
+font-weight:normal;
+outline:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL div.ms-MenuUIULItem a.ms-MenuUIULLink,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL div.ms-MenuUIULItem a.ms-MenuUIULLink
+{
+/* [ReplaceColor(themeColor:"Dark1")] */ color:#0072bc !important;
+font-size:1.1em;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIULItemHover
+{
+/* [RecolorImage(themeColor:"Light1")] */ background:url("/_layouts/15/images/selbg.png?rev=23") repeat-x left top;
+/* [ReplaceColor(themeColor:"Accent1",themeTint:"0.30")] */ background-color:#ccebff;
+/* [ReplaceColor(themeColor:"Accent1-Medium")] */ border:1px solid #91cdf2;
+/* [ReplaceColor(themeColor:"Accent1-Lighter")] */ border-top-color:#bde1f7;
+margin:0px;
+outline:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIULItemHover a.ms-MenuUIULLink
+{
+/* [ReplaceColor(themeColor:"Dark1")] */ color:#003759 !important;
+font-weight:normal;
+outline:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a.ms-MenuUIULLink,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a.ms-MenuUIULLink:hover
+{
+background-image:none;
+text-decoration:none !important;
+cursor:pointer;
+width:100%;
+display:block;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge a.ms-MenuUIULLink,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI a.ms-MenuUIULLink
+{
+float:left;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL a.ms-MenuUIULLink,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL a.ms-MenuUIULLink
+{
+float:right;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIconLarge,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIconLargeRtl
+{
+height:40px;
+width:40px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIconLarge,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIcon
+{
+float:left;
+padding:
+2px 
+4px 
+0px 
+3px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIconLargeRtl,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUIIconRtL
+{
+float:right;
+padding:
+2px 
+3px 
+0px 
+4px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a img.ms-MenuUIULImg
+{
+border-style:none;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge span.ms-MenuUIIconLarge img.ms-MenuUIULImg,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL span.ms-MenuUIIconLargeRtl img.ms-MenuUIULImg
+{
+padding-top:4px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge span.ms-MenuUISubmenuArrow img.ms-MenuUIULImg,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL span.ms-MenuUISubmenuArrow img.ms-MenuUIULImg
+{
+padding-top:12px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge span.ms-MenuUISubmenuArrow,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI span.ms-MenuUISubmenuArrow
+{
+float:right;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL span.ms-MenuUISubmenuArrow,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL span.ms-MenuUISubmenuArrow
+{
+float:left;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUILabel,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUILabelRtL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-menuuilabelcompact,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-menuuilabelcompactRtl
+{
+font-weight:normal;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL a span.ms-MenuUILabel,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUI ul.ms-MenuUIUL a span.ms-menuuilabelcompact
+{
+float:left;
+width:auto;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL a span.ms-MenuUILabelRtL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUIRtL ul.ms-MenuUIUL a span.ms-menuuilabelcompactRtl
+{
+float:right;
+width:auto;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL a span.ms-MenuUILabel,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL a span.ms-menuuilabelcompact{
+float:left;
+width:72%;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL a span.ms-MenuUILabelRtL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL a span.ms-menuuilabelcompactRtl{
+float:right;
+width:72%;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUILabel
+{
+padding:
+2px 
+5px 
+3px 
+0px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-MenuUILabelRtL
+{
+padding:
+2px 
+0px 
+3px 
+5px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-menuuilabelcompact
+{
+padding:
+1px 
+5px 
+1px 
+0px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-menuuilabelcompactRtl
+{
+padding:
+1px 
+0px 
+1px 
+5px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL li.ms-MenuUIDisabled div.ms-MenuUIULItemHover
+{
+background:none !important;
+border-color:transparent !important;
+cursor:default !important;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL li.ms-MenuUIDisabled div.ms-MenuUIULItemHover a
+{
+cursor:default;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIDisabled a span
+{
+color:#666;
+font-weight:normal;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL a span.ms-menuitemdescription
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+font-weight:normal;
+white-space:normal !important;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUIULItemHover a span.ms-menuitemdescription
+{
+/* [ReplaceColor(themeColor:"Dark1-Medium")] */ color:#4c535c;
+font-weight:normal;
+white-space:normal !important;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparator,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorRtL,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorLarge,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorLargeRtl
+{
+background-color:transparent;
+/* [ReplaceColor(themeColor:"Dark2-Lightest")] */ border-top:1px dashed #c5cacd;
+font-size:1px;
+height:1px !important;
+min-height:1px !important;
+display:block;
+line-height:1px;
+margin:2px 0px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparator
+{
+margin:
+2px 
+0px 
+2px 
+26px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorRtL
+{
+margin:
+2px 
+26px 
+2px 
+0px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorLarge
+{
+margin:
+2px 
+0px 
+2px 
+42px;
+}
+div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner ul.ms-MenuUIUL div.ms-MenuUISeparatorLargeRtl
+{
+margin:
+2px 
+42px 
+2px 
+0px;
+}
+.ms-developerdashboard > table
+{
+vertical-align:top;
+width:100%;
+border:2px solid;
+float:left;
+background-repeat:repeat-x;
+background-color:white;
+/* [RecolorImage(themeColor:"Dark2")] */ background-image:url("/_layouts/15/images/settingsgraphic.jpg?rev=23");
+white-space:nowrap;
+}
+.ms-developerdashboard > table tr td
+{
+vertical-align:top;
+background-color:transparent;
+font-family:tahoma;
+font-size:8pt;
+text-align:left;
+}
+.ms-developerdashboard > table th
+{
+background:#ebf3ff url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -381px;
+border:1px solid #add1ff;
+width:100%;
+vertical-align:top;
+font-size:8pt;
+font-weight:bold;
+color:#606060;
+}
+.ms-developerdashboardnav > ul
+{
+margin-top:0px;
+white-space:nowrap;
+}
+.ms-developerdashboardnav ul li
+{
+line-height:14px;
+margin-left:-25px;
+}
+.ms-developerdashboardnav ul li a
+{
+font-size:8pt;
+color:#6699CC;
+}
+html{
+overflow:auto;
+}
+body #s4-mini-header{
+min-height:36px;
+padding:2px 0px;
+/* [RecolorImage(themeColor:"Dark2-Darker",includeRectangle:{x:0,y:589,width:1,height:20})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -565px;
+/* [ReplaceColor(themeColor:"Dark2",themeShade:"0.9")] */ background-color:#21374c;
+/* [ReplaceColor(themeColor:"Light2-Lighter")] */ border-bottom:1px solid #cad2db;
+}
+body #s4-mini-titlearea{
+/* [ReplaceColor(themeColor:"Light1")] */ color:#fff;
+font-size:1.4em;
+overflow:hidden;
+white-space:nowrap;
+}
+body #s4-mini-titlearea > *{
+vertical-align:middle;
+}
+.ms-accessible
+{
+position:absolute;
+top:-2000px;
+overflow:hidden;
+height:1px;
+width:1px;
+display:block;
+}
+.s4-mini-sitelogo{
+max-height:32px;
+vertical-align:middle;
+}
+.s4-mini-header{
+font-size:1em;
+font-weight:normal;
+display:inline;
+unicode-bidi:embed;
+}
+.s4-mini-h1-a{
+/* [ReplaceColor(themeColor:"Light1")] */ color:#fff !important;
+}
+body #s4-mini-header h2 a,body #s4-mini-header h3 a,body #s4-mini-header h2,body #s4-mini-header h3{
+/* [ReplaceColor(themeColor:"Light1")] */ color:#fff;
+}
+body #s4-mini-header a:hover{
+text-decoration:underline;
+}
+.s4-mini-sitelogo-a{
+text-decoration:none;
+display:inline-block;
+margin-right:10px;
+}
+*:first-child+html .s4-mini-titlesep{
+vertical-align:baseline !important;
+}
+.ms-long{
+width:230px;
+}
+.ms-mini-socialNotif-Container{
+text-align:center;
+}
+.ms-mini-socialNotif{
+float:left;
+width:22px;
+height:22px;
+margin:4px 4px;
+border:1px solid transparent;
+}
+*:first-child + html[dir="rtl"] .ms-mini-socialNotif{
+float:left;
+}
+.ms-mini-socialNotif:hover{
+/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ border-color:#8b929a;
+/* [RecolorImage(themeColor:"Dark2-Lightest",method:"Filling",includeRectangle:{x:0,y:489,width:1,height:11})] */ background:url("/_layouts/15/images/bgximg.png?rev=23") repeat-x -0px -489px;
+}
+.ms-mini-trcHelp{
+float:left;
+margin:9px 9px;
+}
+*:first-child + html[dir="rtl"] .ms-mini-trcHelp{
+float:left;
+}
+.ms-mini-trcMenu{
+float:left;
+margin:6px 0px;
+}
+*:first-child + html[dir="rtl"] .ms-mini-trcMenu{
+float:left;
+}
+.s4-mini-noti{
+float:left;
+height:16px;
+margin:10px 3px;
+text-align:center;
+vertical-align:middle;
+white-space:nowrap;
+background-color:#fffbd7;
+}
+.s4-devdashboard{
+margin:7px 5px 0px 0px;
+}

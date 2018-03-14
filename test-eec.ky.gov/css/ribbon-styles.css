@@ -1,0 +1,65 @@
+H1.agencyElement-H1 {
+  -ms-name: "Heading 1";
+}
+H2.agencyElement-H2 {
+  -ms-name: "Heading 2";
+}
+H3.agencyElement-H3 {
+  -ms-name: "Heading 3";
+}
+H4.agencyElement-H4 {
+  -ms-name: "Heading 4";
+}
+H5.agencyElement-H5 {
+  -ms-name: "Heading 5";
+}
+H6.agencyElement-H6 {
+  -ms-name: "Heading 6";
+}
+p.agencyElement-P {
+  -ms-name: "Paragragh";
+}
+div.pull-left .agencyElement-divpullleft {
+  -ms-name: "Pull Left";
+}
+div.pull-right .agencyElement-divpullright {
+  -ms-name: "Pull Right";
+}
+.agencyPosition-1 {
+  -ms-name: "Left";
+  float: left;
+}
+.agencyPosition-2 {
+  -ms-name: "Right";
+  float: right;
+}
+.agencyPosition-3 {
+  -ms-name: "Top";
+  vertical-align: text-top;
+}
+.agencyPosition-4 {
+  -ms-name: "Middle";
+  vertical-align: middle;
+}
+.agencyPosition-5 {
+  -ms-name: "Bottom";
+  vertical-align: text-bottom;
+}
+.agencyImage-1 {
+  -ms-name: "Image Circle";
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.agencyImage-2 {
+  -ms-name: "Image Polaroid";
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.agencyImage-3 {
+  -ms-name: "Image Rounded";
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
