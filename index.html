@@ -172,11 +172,12 @@
 
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
+      // bindTooltip();
 
       // call the update function
       updateMap(dataLayer);
       addUi(dataLayer);
-      addLegend(breaks);
+      addLegend();
 
 
     } // end function drawMap
@@ -239,16 +240,21 @@
       // function accepts a single  data attribute value
       // and uses a series of conditional statements to determine which
       // which color value to return to return to the function caller
+      
+
+      // https://carto.com/carto-colors/
+      // #c4e6c3,#96d2a4,#6dbc90,#4da284,#36877a,#266b6e,#1d4f60
+      
       if (d <= breaks[0][1]) {
-        return '#ccffff';
+        return '#c4e6c3';
       } else if (d <= breaks[1][1]) {
-        return '#3399ff';
+        return '#96d2a4';
       } else if (d <= breaks[2][1]) {
-        return '#ffff99';
+        return '#6dbc90';
       } else if (d <= breaks[3][1]) {
-        return '#9933ff'
+        return '#36877a'
       } else if (d <= breaks[4][1]) {
-        return '#ff0000'
+        return '#1d4f60'
       }
     }
 
@@ -293,7 +299,7 @@
 
         legend.append('<span style="background:' + color + '"></span> ' +
           '<label>' + (breaks[i][0]) + ' &mdash; ' + (breaks[i][1]) +
-          ' %</label>');
+          '</label>');
       }
 
     }
