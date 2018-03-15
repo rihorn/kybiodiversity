@@ -23,9 +23,39 @@
     }
 
     .leaflet-tooltip {
-      min-width: 140px;
+      min-width: 230px;
       font-size: 140%;
       white-space: normal;
+    }
+
+    #legend {
+      padding: 6px 8px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      max-width: 165px;
+    }
+
+    #legend h5 {
+      font-size: 2.1rem;
+    }
+
+    #legend span {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 10px 4px 0;
+    }
+
+    #legend label {
+      font-size: 1.2em;
+    }
+
+    #legend label:after {
+      content: '';
+      display: block;
+      clear: both;
     }
   </style>
 
@@ -135,27 +165,6 @@
             fillColor: '#1f78b4'
           };
         },
-        // <!-- 
-        //         onEachFeature: function (feature, layer) {
-
-        //           // when mousing over a layer
-        //           layer.on('mouseover', function () {
-
-        //             // change the stroke color and bring that element to the front
-        //             layer.setStyle({
-        //               color: '#ff6e00'
-        //             }).bringToFront();
-        //           });
-
-        //           // on mousing off layer
-        //           layer.on('mouseout', function () {
-
-        //             // reset the layer style to its original stroke color
-        //             layer.setStyle({
-        //               color: '#1f78b4'
-        //             });
-        //           });
-        //         } -->
 
       }).addTo(map);
 
@@ -167,6 +176,7 @@
       // call the update function
       updateMap(dataLayer);
       addUi(dataLayer);
+      addLegend(breaks);
 
 
     } // end function drawMap
@@ -175,6 +185,8 @@
 
       // get the class breaks for the current data attribute
       var breaks = getClassBreaks(dataLayer);
+
+      updateLegend(breaks);
 
       // loop through each county layer to update the color and tooltip info
       dataLayer.eachLayer(function (layer) {
@@ -187,8 +199,8 @@
         });
 
         // assemble string sequence of info for tooltip (end line break with + operator)
-        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "Animals: "
-          + props["Animals"];
+        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "Animals: " +
+          props["Animals"];
 
         // bind a tooltip to layer with county-specific information
         layer.bindTooltip(tooltipInfo, {
@@ -216,7 +228,7 @@
       var breaks = clusters.map(function (cluster) {
         return [cluster[0], cluster.pop()];
       });
-      console.log(breaks);
+      //console.log(breaks);
 
       //return array of arrays, e.g., [[0,5], [6, 10], etc]
       return breaks;
@@ -241,10 +253,57 @@
     }
 
 
+
+    function addLegend(breaks) {
+
+      // create a new Leaflet control object, and position it top left
+      var legendControl = L.control({
+        position: 'topleft'
+      });
+
+      // when the legend is added to the map
+      legendControl.onAdd = function (map) {
+
+        // select a div element with an id attribute of legend
+        var legend = L.DomUtil.get('legend');
+
+        // disable scroll and click/touch on map when on legend
+        L.DomEvent.disableScrollPropagation(legend);
+        L.DomEvent.disableClickPropagation(legend);
+
+        // return the selection to the method
+        return legend;
+
+      };
+
+      // add the empty legend div to the map
+      legendControl.addTo(map);
+
+    }
+
+    function updateLegend(breaks) {
+
+      // select the legend, add a title, begin an unordered list and assign to a variable
+      var legend = $('#legend').html("<h5>" + [attributeValue] + " </h5>");
+
+      // loop through the Array of classification break values
+      for (var i = 0; i <= breaks.length - 1; i++) {
+
+        var color = getColor(breaks[i][0], breaks);
+
+        legend.append('<span style="background:' + color + '"></span> ' +
+          '<label>' + (breaks[i][0]) + ' &mdash; ' + (breaks[i][1]) +
+          ' %</label>');
+      }
+
+    }
+
+
+
     function addUi(dataLayer) {
       // create the slider control
       var selectControl = L.control({
-        position: 'topleft'
+        position: 'topright'
       });
 
       // when control is added
@@ -264,11 +323,6 @@
         updateMap(dataLayer);
       });
     }
-
-
-
-
-
   </script>
 
 
