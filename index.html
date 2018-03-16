@@ -107,10 +107,10 @@
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
         <select id="taxonomy-selector">
-          <option value="Animals" selected>Animals</option>
+          <option value="totals" selected>All Element Occurrences</option>
+          <option value="Animals">Animals</option>
           <option value="Plants">Plants</option>
           <option value="Community">Communities</option>
-          <option value="totals">Combined</option>
         </select>
       </div>
       <!-- end ui-controls -->
@@ -144,8 +144,8 @@
       fillOpacity: 1
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
-
-    var attributeValue = "Animals";
+    
+    var attributeValue = "totals";
 
     $.getJSON("data/eoKyQuads1.json", function (data) {
 
@@ -201,7 +201,7 @@
 
         // assemble string sequence of info for tooltip (end line break with + operator)
         var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
-          props[attributeValue]+ " Element Occurrences";
+          props[attributeValue] + " Element Occurrences";
 
         // bind a tooltip to layer with county-specific information
         layer.bindTooltip(tooltipInfo, {
@@ -240,11 +240,11 @@
       // function accepts a single  data attribute value
       // and uses a series of conditional statements to determine which
       // which color value to return to return to the function caller
-      
+
 
       // https://carto.com/carto-colors/
       // #c4e6c3,#96d2a4,#6dbc90,#4da284,#36877a,#266b6e,#1d4f60
-      
+
       if (d <= breaks[0][1]) {
         return '#c4e6c3';
       } else if (d <= breaks[1][1]) {
