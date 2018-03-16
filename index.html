@@ -168,7 +168,7 @@
   <script>
     L.mapbox.accessToken =
       'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
-    var map = L.mapbox.map('map', 'mapbox.outdoors', {
+    var map = L.mapbox.map('map', 'mapbox.pirates', {
       zoomSnap: .1,
       center: [37.6438332, -85.6487252],
       zoom: 7,
@@ -235,9 +235,23 @@
         var props = layer.feature.properties;
 
         // set the fill color of layer based on its normalized data value
-        layer.setStyle({
-          fillColor: getColor(+props[attributeValue], breaks)
-        });
+
+if(+props[attributeValue] != 0) {
+          // set the fill color of layer based on its normalized data value
+          layer.setStyle({
+            fillColor: getColor(+props[attributeValue], breaks),
+            opacity: 1,
+            fillOpacity: 1
+          });
+        } else {
+          layer.setStyle({
+            opacity: 0,
+            fillOpacity: 0
+          })
+        }
+        // layer.setStyle({
+        //   fillColor: getColor(+props[attributeValue], breaks)
+        // });
 
         // assemble string sequence of info for tooltip (end line break with + operator)
         var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
@@ -260,7 +274,10 @@
       // loop through all the quads
       dataLayer.eachLayer(function (layer) {
         var value = layer.feature.properties[attributeValue];
-        values.push(+value); // push the value for each layer into the Array
+                // don't push zero values into the array
+                if(value > 0) {
+          values.push(+value); // push the value for each layer into the Array
+        }
 
       });
       // determine similar clusters
