@@ -101,14 +101,35 @@
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
 
-      <div id='ui-presence'>
+      <!-- <div id='ui-presence'>
         <label>Record Type</label>
         <select id="presence-selector">
           <option value="allRecords" selected>All Records</option>
           <option value="Extant">Extant</option>
           <option value="Plants">Historic/Extirpated</option>
         </select>
-      </div> -->
+      </div>  -->
+
+      <div id='radio-presence'>
+        <label class='radio-container'>
+          <input name='radio-basic' type='radio'>
+          <div class='radio mr6'></div>
+         All Records
+        </label>
+        <label class='txt-s ml24 radio-container'>
+          <input name='radio-basic' type='radio'>
+          <div class='radio radio--s-label radio--yellow mr6'></div>
+          Extant
+        </label>
+        <label class='txt-s ml24 radio-container'>
+            <input name='radio-basic' type='radio'>
+            <div class='radio radio--s-label radio--yellow mr6'></div>
+           Historic/Extirpated
+          </label>
+      </div>
+
+
+
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -147,7 +168,7 @@
   <script>
     L.mapbox.accessToken =
       'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
-    var map = L.mapbox.map('map', 'mapbox.pirates', {
+    var map = L.mapbox.map('map', 'mapbox.outdoors', {
       zoomSnap: .1,
       center: [37.6438332, -85.6487252],
       zoom: 7,
@@ -358,7 +379,7 @@
       // when control is added
       selectControl.onAdd = function (map) {
         // get the element with id attribute of ui-controls
-        return L.DomUtil.get("ui-presence");
+        return L.DomUtil.get("radio-presence");
       }
       // add the control to the map
       selectControl.addTo(map);
