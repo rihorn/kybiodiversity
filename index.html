@@ -146,7 +146,7 @@
     });
     
     var attributeValue = "allRecords";
-    console.log(attributeValue);
+    //console.log(attributeValue);
 
     $.getJSON("data/eoKyQuads.json", function (data) {
 
@@ -166,6 +166,7 @@
             fillColor: '#1f78b4'
           };
         },
+       
 
       }).addTo(map);
 
@@ -174,6 +175,7 @@
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
       // bindTooltip();
+     
 
       // call the update function
       updateMap(dataLayer);
