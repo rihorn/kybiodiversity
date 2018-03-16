@@ -109,7 +109,7 @@
         <select id="taxonomy-selector">
           <option value="Animals" selected>Animals</option>
           <option value="Plants">Plants</option>
-          <option value="Community">Community</option>
+          <option value="Community">Communities</option>
           <option value="totals">Combined</option>
         </select>
       </div>
@@ -161,7 +161,7 @@
           return {
             color: 'blue',
             weight: 1,
-            fillOpacity: .85,
+            fillOpacity: 1,
             fillColor: '#1f78b4'
           };
         },
@@ -200,8 +200,8 @@
         });
 
         // assemble string sequence of info for tooltip (end line break with + operator)
-        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "Animals: " +
-          props["Animals"];
+        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
+          props[attributeValue]+ " Element Occurrences";
 
         // bind a tooltip to layer with county-specific information
         layer.bindTooltip(tooltipInfo, {
@@ -309,7 +309,7 @@
     function addUi(dataLayer) {
       // create the slider control
       var selectControl = L.control({
-        position: 'topright'
+        position: 'topleft'
       });
 
       // when control is added
