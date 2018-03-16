@@ -5,12 +5,8 @@
   <meta charset=utf-8 />
   <title>Kentucky Biodiversity Project - Alpha</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <!-- loading Assembly CSS here -->
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
   <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
 
 
   <style>
@@ -56,6 +52,11 @@
       content: '';
       display: block;
       clear: both;
+    }
+
+    #ui-controls, #ui-presence {
+      padding: 6px 9px;
+      background: white;
     }
   </style>
 
@@ -108,7 +109,7 @@
           <option value="Extant">Extant</option>
           <option value="Plants">Historic/Extirpated</option>
         </select>
-      </div> -->
+      </div>
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -152,9 +153,6 @@
     });
 
     var attributeValue = "allRecords";
-    //console.log(attributeValue);
-    var presence = ["allRecords", "Extant", "Historic/Extirpated"];
-     //console.log(presence[1,1,1]);
 
 
     $.getJSON("data/eoKyQuads.json", function (data) {
@@ -169,10 +167,9 @@
       var dataLayer = L.geoJson(data, {
         style: function (feature) {
           return {
-            color: 'blue',
+            color: 'white',
             weight: 1,
-            fillOpacity: 1,
-            fillColor: '#1f78b4'
+            opacity: 0
           };
         },
 
@@ -190,7 +187,7 @@
       updateMap(dataLayer);
       addUi(dataLayer);
       addLegend();
-      presenceUi(presence);
+      presenceUi(dataLayer);
 
 
     } // end function drawMap
@@ -207,10 +204,20 @@
 
         var props = layer.feature.properties;
 
-        // set the fill color of layer based on its normalized data value
-        layer.setStyle({
-          fillColor: getColor(+props[attributeValue], breaks)
-        });
+        if(+props[attributeValue] != 0) {
+          // set the fill color of layer based on its normalized data value
+          layer.setStyle({
+            fillColor: getColor(+props[attributeValue], breaks),
+            opacity: 1,
+            fillOpacity: 1
+          });
+        } else {
+          layer.setStyle({
+            opacity: 0,
+            fillOpacity: 0
+          })
+        }
+
 
         // assemble string sequence of info for tooltip (end line break with + operator)
         var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
@@ -233,9 +240,15 @@
       // loop through all the quads
       dataLayer.eachLayer(function (layer) {
         var value = layer.feature.properties[attributeValue];
-        values.push(+value); // push the value for each layer into the Array
+        // don't push zero values into the array
+        if(value > 0) {
+          values.push(+value); // push the value for each layer into the Array
+        }
 
       });
+      console.log(values.sort(function(a,b){
+        return a - b;
+      }))
       // determine similar clusters
       var clusters = ss.ckmeans(values, 5);
       // create an array of the lowest value within each cluster
@@ -322,7 +335,7 @@
     function addUi(dataLayer) {
       // create the slider control
       var selectControl = L.control({
-        position: 'topleft'
+        position: 'topright'
       });
 
       // when control is added
@@ -360,8 +373,8 @@
 
       $('select[id="presence-selector"]').change(function () {
         // store reference to currently selected value
-        //presence = 'allRecords';
-        //console.log(presence);
+        presence = this.value;
+        console.log(presence);
 
         // call updateMap function
       //  updateMap();
