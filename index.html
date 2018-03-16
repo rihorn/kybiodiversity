@@ -94,15 +94,21 @@
     <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
       <div id="map" class='viewport-twothirds viewport-full-ml'></div>
 
-      <!-- ui slider -->
-      <div id='slider' class='range w249 bg-white round-ml px12'>
-        <input type='range' />
-      </div>
+
       <!-- legend -->
       <div id='legend' class='bg-white round-ml px18 py12'>
         <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
+
+      <div id='ui-presence'>
+        <label>Record Type</label>
+        <select id="presence-selector">
+          <option value="allRecords" selected>All Records</option>
+          <option value="Extant">Extant</option>
+          <option value="Plants">Historic/Extirpated</option>
+        </select>
+      </div> -->
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -144,9 +150,12 @@
       fillOpacity: 1
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
-    
+
     var attributeValue = "allRecords";
     //console.log(attributeValue);
+    var presence = ["allRecords", "Extant", "Historic/Extirpated"];
+     //console.log(presence[1,1,1]);
+
 
     $.getJSON("data/eoKyQuads.json", function (data) {
 
@@ -166,7 +175,7 @@
             fillColor: '#1f78b4'
           };
         },
-       
+
 
       }).addTo(map);
 
@@ -175,12 +184,13 @@
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
       // bindTooltip();
-     
+
 
       // call the update function
       updateMap(dataLayer);
       addUi(dataLayer);
       addLegend();
+      presenceUi(presence);
 
 
     } // end function drawMap
@@ -332,6 +342,33 @@
         updateMap(dataLayer);
       });
     }
+
+    function presenceUi() {
+      // create the slider control
+      var selectControl = L.control({
+        position: 'topright'
+      });
+
+      // when control is added
+      selectControl.onAdd = function (map) {
+        // get the element with id attribute of ui-controls
+        return L.DomUtil.get("ui-presence");
+      }
+      // add the control to the map
+      selectControl.addTo(map);
+
+
+      $('select[id="presence-selector"]').change(function () {
+        // store reference to currently selected value
+        presence = 'allRecords';
+        //console.log(presence);
+
+        // call updateMap function
+      //  updateMap();
+      });
+    }
+
+
   </script>
 
 
