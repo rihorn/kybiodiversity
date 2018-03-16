@@ -107,10 +107,10 @@
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
         <select id="taxonomy-selector">
-          <option value="totals" selected>All Element Occurrences</option>
+          <option value="allRecords" selected>All Element Occurrences</option>
           <option value="Animals">Animals</option>
           <option value="Plants">Plants</option>
-          <option value="Community">Communities</option>
+          <option value="Communities">Communities</option>
         </select>
       </div>
       <!-- end ui-controls -->
@@ -145,9 +145,10 @@
       //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
     });
     
-    var attributeValue = "totals";
+    var attributeValue = "allRecords";
+    console.log(attributeValue);
 
-    $.getJSON("data/eoKyQuads1.json", function (data) {
+    $.getJSON("data/eoKyQuads.json", function (data) {
 
       drawMap(data);
     }); // end of $.getJSON()
