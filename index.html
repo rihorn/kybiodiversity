@@ -53,6 +53,11 @@
       display: block;
       clear: both;
     }
+
+    #ui-controls, #ui-presence {
+      padding: 6px 9px;
+      background: white;
+    }
   </style>
 
 
@@ -105,27 +110,6 @@
           <option value="Plants">Historic/Extirpated</option>
         </select>
       </div>
-
-      <!-- <div id='radio-presence'>
-        <label class='radio-container'>
-          <input name='radio-basic' type='radio'>
-          <div class='radio mr6'></div>
-         All Records
-        </label>
-        <label class='txt-s ml24 radio-container'>
-          <input name='radio-basic' type='radio'>
-          <div class='radio radio--s-label radio--yellow mr6'></div>
-          Extant
-        </label>
-        <label class='txt-s ml24 radio-container'>
-            <input name='radio-basic' type='radio'>
-            <div class='radio radio--s-label radio--yellow mr6'></div>
-           Historic/Extirpated
-          </label>
-      </div> -->
-
-
-
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -228,23 +212,18 @@
 
         // set the fill color of layer based on its normalized data value
 
-        if (+props[attributeValue] != 0) {
-          // set the fill color of layer based on its normalized data value
-          layer.setStyle({
-            fillColor: getColor(+props[attributeValue], breaks),
-            opacity: 1,
-            fillOpacity: 1
-          });
+       if(+props[attributeValue] != 0) {
+     // set the fill color of layer based on its normalized data value
+         layer.setStyle({
+           fillColor: getColor(+props[attributeValue], breaks),
+           opacity: 1,
+           fillOpacity: 1         
+            });
         } else {
-          layer.setStyle({
-            opacity: 0,
-            fillOpacity: 0
-          })
-        }
-        // layer.setStyle({
-        //   fillColor: getColor(+props[attributeValue], breaks)
-        // });
-
+         layer.setStyle({
+          opacity: 0,
+         })
+     }
         // assemble string sequence of info for tooltip (end line break with + operator)
         var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
           props[attributeValue] + " Element Occurrences";
@@ -391,7 +370,7 @@
       // when control is added
       selectControl.onAdd = function (map) {
         // get the element with id attribute of ui-controls
-        return L.DomUtil.get("radio-presence");
+        return L.DomUtil.get("ui-presence");
       }
       // add the control to the map
       selectControl.addTo(map);
@@ -406,8 +385,6 @@
         //  updateMap();
       });
     }
-
-
   </script>
 
 
