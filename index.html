@@ -54,7 +54,8 @@
       clear: both;
     }
 
-    #ui-controls, #ui-presence {
+    #ui-controls,
+    #ui-presence {
       padding: 6px 9px;
       background: white;
     }
@@ -107,7 +108,7 @@
         <select id="presence-selector">
           <option value="allRecords" selected>All Records</option>
           <option value="Extant">Extant</option>
-          <option value="Plants">Historic/Extirpated</option>
+          <option value="Historic/Extirpated">Historic/Extirpated</option>
         </select>
       </div>
 
@@ -155,6 +156,9 @@
     });
 
     var attributeValue = "allRecords";
+    // var presenceValue = "allRecords";
+    // var taxonomyValue = "allRecords";
+
 
 
     $.getJSON("data/eoKyQuads.json", function (data) {
@@ -198,34 +202,56 @@
 
       // get the class breaks for the current data attribute
       var breaks = getClassBreaks(dataLayer);
+      var presenceValue = presenceUi(dataLayer);
+      var taxonomyValue = addUi(dataLayer);
+
+      if (presenceValue === "Extant" && taxonomyValue === "Plants") {
+        attributeValue = "ePlants"
+      }
+      if (presenceValue === "Extant" && taxonomyValue === "Animals") {
+        attributeValue = "eAnimals"
+      }
+      if (presenceValue === "Extant" && taxonomyValue === "Communities") {
+        attributeValue = "eCommunities"
+      }
+      if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Plants") {
+        attributeValue = "hPlants"
+      }
+      if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Animals") {
+        attributeValue = "hAnimals"
+      }
+      if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Communities") {
+        attributeValue = "hCommunities"
+      } else {attributeValue = "allRecords"}
+
 
       updateLegend(breaks);
+      // console.log(presenceValue);
 
-      
 
       // loop through each county layer to update the color and tooltip info
       dataLayer.eachLayer(function (layer) {
 
         var props = layer.feature.properties;
-        // var presenceValue = ["Extant", "Historic/Extirpated?","allRecords"];
-        // if(presenceValue ==="Extant" && taxonomyValue === "Plants") {
-        //   attribueValue = "ePlants"
-        // }
+
+
+
 
         // set the fill color of layer based on its normalized data value
 
-       if(+props[attributeValue] != 0) {
-     // set the fill color of layer based on its normalized data value
-         layer.setStyle({
-           fillColor: getColor(+props[attributeValue], breaks),
-           opacity: 1,
-           fillOpacity: 1         
-            });
+        if (+props[attributeValue] != 0) {
+          // set the fill color of layer based on its normalized data value
+          layer.setStyle({
+            fillColor: getColor(+props[attributeValue], breaks),
+            opacity: 1,
+            fillOpacity: 1
+          });
         } else {
-         layer.setStyle({
-          opacity: 0,
-         })
-     }
+          layer.setStyle({
+            opacity: 0,
+            fillOpacity: 0
+          })
+        }
         // assemble string sequence of info for tooltip (end line break with + operator)
         var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
           props[attributeValue] + " Element Occurrences";
@@ -254,9 +280,9 @@
 
       });
 
-      console.log(values.sort(function (a, b) {
-        return a - b;
-      }))
+      // console.log(values.sort(function (a, b) {
+      //   return a - b;
+      // }))
 
 
 
@@ -380,11 +406,11 @@
 
       $('select[id="presence-selector"]').change(function () {
         // store reference to currently selected value
-        presence = this.value;
-        console.log(presence);
+        presenceValue = this.value;
+        //console.log(presenceValue);
 
         // call updateMap function
-        //  updateMap();
+        updateMap();
       });
     }
   </script>
