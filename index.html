@@ -156,8 +156,8 @@
     });
 
     var attributeValue = "allRecords";
-    // var presenceValue = "allRecords";
-    // var taxonomyValue = "allRecords";
+    var presenceValue = "allRecords";
+    var taxonomyValue = "allRecords";
 
 
 
@@ -202,9 +202,6 @@
 
       // get the class breaks for the current data attribute
       var breaks = getClassBreaks(dataLayer);
-      var presenceValue = presenceUi(dataLayer);
-      var taxonomyValue = addUi(dataLayer);
-
       if (presenceValue === "Extant" && taxonomyValue === "Plants") {
         attributeValue = "ePlants"
       }
