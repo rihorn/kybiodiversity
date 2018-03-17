@@ -5,12 +5,8 @@
   <meta charset=utf-8 />
   <title>Kentucky Biodiversity Project - Alpha</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <!-- loading Assembly CSS here -->
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
   <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
 
 
   <style>
@@ -101,16 +97,16 @@
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
 
-      <!-- <div id='ui-presence'>
+      <div id='ui-presence'>
         <label>Record Type</label>
         <select id="presence-selector">
           <option value="allRecords" selected>All Records</option>
           <option value="Extant">Extant</option>
           <option value="Plants">Historic/Extirpated</option>
         </select>
-      </div>  -->
+      </div>
 
-      <div id='radio-presence'>
+      <!-- <div id='radio-presence'>
         <label class='radio-container'>
           <input name='radio-basic' type='radio'>
           <div class='radio mr6'></div>
@@ -126,7 +122,7 @@
             <div class='radio radio--s-label radio--yellow mr6'></div>
            Historic/Extirpated
           </label>
-      </div>
+      </div> -->
 
 
 
@@ -179,9 +175,6 @@
     });
 
     var attributeValue = "allRecords";
-    //console.log(attributeValue);
-    var presence = ["allRecords", "Extant", "Historic/Extirpated"];
-    //console.log(presence[1,1,1]);
 
 
     $.getJSON("data/eoKyQuads.json", function (data) {
@@ -196,10 +189,9 @@
       var dataLayer = L.geoJson(data, {
         style: function (feature) {
           return {
-            color: 'blue',
+            color: 'white',
             weight: 1,
-            fillOpacity: 1,
-            fillColor: '#1f78b4'
+            opacity: 0
           };
         },
 
@@ -217,7 +209,7 @@
       updateMap(dataLayer);
       addUi(dataLayer);
       addLegend();
-      presenceUi(presence);
+      presenceUi(dataLayer);
 
 
     } // end function drawMap
@@ -236,7 +228,7 @@
 
         // set the fill color of layer based on its normalized data value
 
-if(+props[attributeValue] != 0) {
+        if (+props[attributeValue] != 0) {
           // set the fill color of layer based on its normalized data value
           layer.setStyle({
             fillColor: getColor(+props[attributeValue], breaks),
@@ -274,12 +266,19 @@ if(+props[attributeValue] != 0) {
       // loop through all the quads
       dataLayer.eachLayer(function (layer) {
         var value = layer.feature.properties[attributeValue];
-                // don't push zero values into the array
-                if(value > 0) {
+        // don't push zero values into the array
+        if (value > 0) {
           values.push(+value); // push the value for each layer into the Array
         }
 
       });
+
+      console.log(values.sort(function (a, b) {
+        return a - b;
+      }))
+
+
+
       // determine similar clusters
       var clusters = ss.ckmeans(values, 5);
       // create an array of the lowest value within each cluster
@@ -314,8 +313,6 @@ if(+props[attributeValue] != 0) {
         return '#1d4f60'
       }
     }
-
-
 
     function addLegend(breaks) {
 
@@ -361,12 +358,10 @@ if(+props[attributeValue] != 0) {
 
     }
 
-
-
     function addUi(dataLayer) {
       // create the slider control
       var selectControl = L.control({
-        position: 'topleft'
+        position: 'topright'
       });
 
       // when control is added
@@ -404,8 +399,8 @@ if(+props[attributeValue] != 0) {
 
       $('select[id="presence-selector"]').change(function () {
         // store reference to currently selected value
-        //presence = 'allRecords';
-        //console.log(presence);
+        presence = this.value;
+        console.log(presence);
 
         // call updateMap function
         //  updateMap();
