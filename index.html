@@ -7,12 +7,32 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
     <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous">
 
 
 
     <style>
+        #pageHeader {
+
+            background: #084D7D;
+            font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #ffffff;
+
+        }
+
+        /* #navbar-brand {
+
+            background: #084D7D;
+            font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #ffffff;
+        } */
+
         #map {
             background: #448ee4;
         }
@@ -68,9 +88,14 @@
 </head>
 
 <body>
-        <div class="container mt-5 p-4 bg text-white">
-                <h1>Hello, world!</h1>
-            </div>
+    <div id="pageHeader" class="container-fluid">
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand text-whiteWhite" href="http://kentucky.gov">Ky.
+                <small>gov</small>
+            </a>
+            <p class="navbar-text navbar-text-kytagline hidden-xs">An Official Website of the Commonwealth of Kentucky</p>
+        </div>
+    </div>
     <div class='flex-parent viewport-full relative scroll-hidden'>
         <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
             <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
