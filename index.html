@@ -1,400 +1,400 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Marketplace
+    Explore
+
+    @rihorn
+
+1
+0
+
+    0
+
+rihorn/kybiodiversity
+Code
+Issues 1
+Pull requests 0
+Projects 0
+Wiki
+Insights
+Settings
+kybiodiversity/index.html
+f6d6432 4 hours ago
+@rgdonohue rgdonohue try conditionals
+@rihorn
+@ianhorn
+@rgdonohue
+438 lines (345 sloc) 15.8 KB
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset=utf-8 />
-  <title>Kentucky Biodiversity Project - Alpha</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <!-- loading Assembly CSS here -->
-  <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
-  <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
+    <meta charset=utf-8 />
+    <title>Kentucky Biodiversity Project - Alpha</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!-- loading Assembly CSS here -->
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" /> -->
 
 
-  <style>
-    #map {
-      background: #448ee4;
-    }
-
-    h1 {
-      color: orange;
-    }
-
-    .leaflet-tooltip {
-      min-width: 230px;
-      font-size: 140%;
-      white-space: normal;
-    }
-
-    #legend {
-      padding: 6px 8px;
-      font-size: 1em;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-      max-width: 165px;
-    }
-
-    #legend h5 {
-      font-size: 2.1rem;
-    }
-
-    #legend span {
-      width: 20px;
-      height: 20px;
-      float: left;
-      margin: 0 10px 4px 0;
-    }
-
-    #legend label {
-      font-size: 1.2em;
-    }
-
-    #legend label:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-
-    #ui-controls,
-    #ui-presence {
-      padding: 6px 9px;
-      background: white;
-    }
-  </style>
+    <style>
+        #map {
+            background: #448ee4;
+        }
+        h1 {
+            color: orange;
+        }
+        .leaflet-tooltip {
+            min-width: 230px;
+            font-size: 140%;
+            white-space: normal;
+        }
+        #legend {
+            padding: 6px 8px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            max-width: 165px;
+        }
+        #legend h5 {
+            font-size: 2.1rem;
+        }
+        #legend span {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 0 10px 4px 0;
+        }
+        #legend label {
+            font-size: 1.2em;
+        }
+        #legend label:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #ui-controls,
+        #ui-presence {
+            padding: 6px 9px;
+            background: white;
+        }
+    </style>
 
 
 </head>
 
 <body>
 
-  <div class='flex-parent viewport-full relative scroll-hidden'>
-    <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
-      <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
-        <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-          <h1 class='txt-h1 mb6'>Kentucky Biodiversity</h1>
-          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
-            at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
-            nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
-            et magnis dis parturient montes, nascetur ridiculus mus.</p>
-          <h2 class='txt-xl mt18 mb12'>subheading</h2>
-          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
-            at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
-            nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
-            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    <div class='flex-parent viewport-full relative scroll-hidden'>
+        <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
+            <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
+                <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
+                    <h1 class='txt-h1 mb6'>Kentucky Biodiversity</h1>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur
+                        est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean
+                        lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <h2 class='txt-xl mt18 mb12'>subheading</h2>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur
+                        est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean
+                        lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+                <footer class='px12 py12 bg-gray-faint txt-s'>
+                    <ul>
+                        <li>Explore the raw
+                            <a class='link' href='#'>data</a>
+                        </li>
+                        <li>Map authored by
+                            <a class='link' href='#'>Ian Horn</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
         </div>
-        <footer class='px12 py12 bg-gray-faint txt-s'>
-          <ul>
-            <li>Explore the raw
-              <a class='link' href='#'>data</a>
-            </li>
-            <li>Map authored by
-              <a class='link' href='#'>Ian Horn</a>
-            </li>
-          </ul>
-        </footer>
-      </div>
-    </div>
-    <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
-      <div id="map" class='viewport-twothirds viewport-full-ml'></div>
+        <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
+            <div id="map" class='viewport-twothirds viewport-full-ml'></div>
 
 
-      <!-- legend -->
-      <div id='legend' class='bg-white round-ml px18 py12'>
-        <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
-        <div class='bg-blue h180 w240 mx-auto'></div>
-      </div>
+            <!-- legend -->
+            <div id='legend' class='bg-white round-ml px18 py12'>
+                <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
+                <div class='bg-blue h180 w240 mx-auto'></div>
+            </div>
 
-      <div id='ui-presence'>
-        <label>Record Type</label>
-        <select id="presence-selector">
-          <option value="allRecords" selected>All Records</option>
-          <option value="Extant">Extant</option>
-          <option value="Plants">Historic/Extirpated</option>
-        </select>
-      </div>
-      <!-- 
+            <div id='ui-presence'>
+                <label>Record Type</label>
+                <select id="presence-selector">
+                    <option value="allRecords" selected>All Records</option>
+                    <option value="Extant">Extant</option>
+                    <option value="Plants">Historic/Extirpated</option>
+                </select>
+            </div>
+            <!-- 
       <div id='radio-presence'>
         <label class='radio-container'>
           <input name='radio-basic' type='radio'>
           <div class='radio mr6'></div> -->
 
-      All Records
-      </label>
-      <label class='txt-s ml24 radio-container'>
-        <input name='radio-basic' type='radio'>
-        <div class='radio radio--s-label radio--yellow mr6'></div>
-        Extant
-      </label>
-      <label class='txt-s ml24 radio-container'>
-        <input name='radio-basic' type='radio'>
-        <div class='radio radio--s-label radio--yellow mr6'></div>
-        Historic/Extirpated
-      </label>
+            All Records
+            </label>
+            <label class='txt-s ml24 radio-container'>
+                <input name='radio-basic' type='radio'>
+                <div class='radio radio--s-label radio--yellow mr6'></div>
+                Extant
+            </label>
+            <label class='txt-s ml24 radio-container'>
+                <input name='radio-basic' type='radio'>
+                <div class='radio radio--s-label radio--yellow mr6'></div>
+                Historic/Extirpated
+            </label>
+        </div>
+
+
+
+
+        <div id='ui-controls'>
+            <label>Choose Taxonomy:</label>
+            <select id="taxonomy-selector">
+                <option value="allRecords" selected>All Element Occurrences</option>
+                <option value="Animals">Animals</option>
+                <option value="Plants">Plants</option>
+                <option value="Communities">Communities</option>
+            </select>
+        </div>
+        <!-- end ui-controls -->
+
+    </div>
     </div>
 
 
-
-
-    <div id='ui-controls'>
-      <label>Choose Taxonomy:</label>
-      <select id="taxonomy-selector">
-        <option value="allRecords" selected>All Element Occurrences</option>
-        <option value="Animals">Animals</option>
-        <option value="Plants">Plants</option>
-        <option value="Communities">Communities</option>
-      </select>
-    </div>
-    <!-- end ui-controls -->
-
-  </div>
-  </div>
-
-
-  <!-- loading Assembly JS here -->
-  <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
-  <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-  <!-- <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script> -->
-  <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
-  <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script> -->
-  <script src="https://unpkg.com/simple-statistics@5.2.1/dist/simple-statistics.min.js"></script>
-  <!-- Enterprise Javascript and CSS -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" />
+    <!-- loading Assembly JS here -->
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <!-- <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script> -->
+    <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script> -->
+    <script src="https://unpkg.com/simple-statistics@5.2.1/dist/simple-statistics.min.js"></script>
+    <!-- Enterprise Javascript and CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://secure.test.kentucky.gov/enterprise/styles/agency-enterprise-sp2013.min.css" rel="stylesheet" />
   <script src="https://secure.test.kentucky.gov/enterprise/scripts/enterprise-loader.min.js?jq=true" type="text/javascript"></script> -->
-  <!-- Placeholder for Agency Stylesheets and Scripts-->
+    <!-- Placeholder for Agency Stylesheets and Scripts-->
 
 
-  <script>
-    L.mapbox.accessToken =
-      'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
-    var map = L.mapbox.map('map', 'mapbox.pirates', {
-      zoomSnap: .1,
-      center: [37.6438332, -85.6487252],
-      zoom: 7,
-      minZoom: 1,
-      maxZoom: 20,
-      fillOpacity: 1
-      //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
-    });
-
-    var attributeValue = "allRecords";
-    //console.log(attributeValue);
-    var presence = ["allRecords", "Extant", "Historic/Extirpated"];
-    //console.log(presence[1,1,1]);
-
-
-    $.getJSON("data/eoKyQuads.json", function (data) {
-
-      drawMap(data);
-    }); // end of $.getJSON()
-
-
-    function drawMap(data) {
-
-      // create Leaflet object with geometry data and add to map
-      var dataLayer = L.geoJson(data, {
-        style: function (feature) {
-          return {
-            color: 'blue',
-            weight: 1,
-            fillOpacity: 1,
-            fillColor: '#1f78b4'
-          };
-        },
-
-
-      }).addTo(map);
-
-
-
-      //first set the zoom/center to the dataLayer's extent
-      map.fitBounds(dataLayer.getBounds());
-      // bindTooltip();
-
-
-      // call the update function
-      updateMap(dataLayer);
-      addUi(dataLayer);
-      addLegend();
-      presenceUi(presence);
-
-
-    } // end function drawMap
-
-    function updateMap(dataLayer) {
-
-      // get the class breaks for the current data attribute
-      var breaks = getClassBreaks(dataLayer);
-
-      updateLegend(breaks);
-
-      // loop through each county layer to update the color and tooltip info
-      dataLayer.eachLayer(function (layer) {
-
-        var props = layer.feature.properties;
-
-        // set the fill color of layer based on its normalized data value
-
-        if (+props[attributeValue] != 0) {
-          // set the fill color of layer based on its normalized data value
-          layer.setStyle({
-            fillColor: getColor(+props[attributeValue], breaks),
-            opacity: 1,
+    <script>
+        L.mapbox.accessToken =
+            'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
+        var map = L.mapbox.map('map', 'mapbox.pirates', {
+            zoomSnap: .1,
+            center: [37.6438332, -85.6487252],
+            zoom: 7,
+            minZoom: 1,
+            maxZoom: 20,
             fillOpacity: 1
-          });
-        } else {
-          layer.setStyle({
-            opacity: 0,
-            fillOpacity: 0
-          })
-        }
-        // layer.setStyle({
-        //   fillColor: getColor(+props[attributeValue], breaks)
-        // });
-
-        // assemble string sequence of info for tooltip (end line break with + operator)
-        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
-          props[attributeValue] + " Element Occurrences";
-
-        // bind a tooltip to layer with county-specific information
-        layer.bindTooltip(tooltipInfo, {
-          // sticky property so tooltip follows the mouse
-          sticky: true,
-          tooltipAnchor: [200, 200]
+            //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
         });
-      });
-    }
-
-
-    function getClassBreaks(dataLayer) {
-      // create empty Array for storing values
-      var values = [];
-
-      // loop through all the quads
-      dataLayer.eachLayer(function (layer) {
-        var value = layer.feature.properties[attributeValue];
-        // don't push zero values into the array
-        if (value > 0) {
-          values.push(+value); // push the value for each layer into the Array
+        var attributeValue = "allRecords";
+        $.getJSON("data/eoKyQuads.json", function (data) {
+            drawMap(data);
+        }); // end of $.getJSON()
+        function drawMap(data) {
+            // create Leaflet object with geometry data and add to map
+            var dataLayer = L.geoJson(data, {
+                style: function (feature) {
+                    return {
+                        color: 'blue',
+                        weight: 1,
+                        fillOpacity: 1,
+                        fillColor: '#1f78b4'
+                    };
+                }
+            }).addTo(map);
+            //first set the zoom/center to the dataLayer's extent
+            map.fitBounds(dataLayer.getBounds());
+            // bindTooltip();
+            // call the update function
+            updateMap(dataLayer);
+            addUi(dataLayer);
+            addLegend();
+        } // end function drawMap
+        function updateMap(dataLayer) {
+            // get the currently selected values 
+            var taxonomyValue = $("#taxonomy-selector option:selected").val()
+                var presenceValue = $("#presence-selector option:selected").val()
+            
+            console.log(taxonomyValue, presenceValue)
+            if (presenceValue === "allRecords" && taxonomyValue === "allRecords") {
+                attributeValue = "allRecords"
+            }
+            if (presenceValue === "allRecords" && taxonomyValue === "Animals") {
+                attributeValue = "Animals"
+            }
+            if (presenceValue === "allRecords" && taxonomyValue === "Plants") {
+                attributeValue = "Plants"
+            }
+            if (presenceValue === "allRecords" && taxonomyValue === "Communities") {
+                attributeValue = "Communities"
+            }
+            if (presenceValue === "Extant" && taxonomyValue === "allRecords") {
+                attributeValue = "allExtant"
+            }
+            if (presenceValue === "Extant" && taxonomyValue === "Animals") {
+                attributeValue = "eAnimals"
+            }
+            if (presenceValue === "Extrant" && taxonomyValue === "Plants") {
+                attributeValue = "ePlants"
+            }
+            if (presenceValue === "Extant" && taxonomyValue === "Communities") {
+                attributeValue = "eCommunities"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "allRecords") {
+                attributeValue = "allHistoric"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Animals") {
+                attributeValue = "hAnimals"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Plants") {
+                attributeValue = "hPlants"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Communities") {
+                attributeValue = "hCommunities"
+            }
+            // else {
+            //     attributeValue = "allRecords"
+            // }
+            console.log(attributeValue)
+            // get the class breaks for the current data attribute
+            var breaks = getClassBreaks(dataLayer);
+            updateLegend(breaks);
+            // loop through each county layer to update the color and tooltip info
+            dataLayer.eachLayer(function (layer) {
+                var props = layer.feature.properties;
+                // set the fill color of layer based on its normalized data value
+                if (+props[attributeValue] != 0) {
+                    // set the fill color of layer based on its normalized data value
+                    layer.setStyle({
+                        fillColor: getColor(+props[attributeValue], breaks),
+                        opacity: 1,
+                        fillOpacity: 1
+                    });
+                } else {
+                    layer.setStyle({
+                        opacity: 0,
+                        fillOpacity: 0
+                    })
+                }
+                // layer.setStyle({
+                //   fillColor: getColor(+props[attributeValue], breaks)
+                // });
+                // assemble string sequence of info for tooltip (end line break with + operator)
+                var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + attributeValue + ": " +
+                    props[attributeValue] + " Element Occurrences";
+                // bind a tooltip to layer with county-specific information
+                layer.bindTooltip(tooltipInfo, {
+                    // sticky property so tooltip follows the mouse
+                    sticky: true,
+                    tooltipAnchor: [200, 200]
+                });
+            });
         }
-
-      });
-      // determine similar clusters
-      var clusters = ss.ckmeans(values, 5);
-      // create an array of the lowest value within each cluster
-      var breaks = clusters.map(function (cluster) {
-        return [cluster[0], cluster.pop()];
-      });
-      //console.log(breaks);
-
-      //return array of arrays, e.g., [[0,5], [6, 10], etc]
-      return breaks;
-
-    }
-
-    function getColor(d, breaks) {
-      // function accepts a single  data attribute value
-      // and uses a series of conditional statements to determine which
-      // which color value to return to return to the function caller
-
-
-      // https://carto.com/carto-colors/
-      // #c4e6c3,#96d2a4,#6dbc90,#4da284,#36877a,#266b6e,#1d4f60
-
-      if (d <= breaks[0][1]) {
-        return '#c4e6c3';
-      } else if (d <= breaks[1][1]) {
-        return '#96d2a4';
-      } else if (d <= breaks[2][1]) {
-        return '#6dbc90';
-      } else if (d <= breaks[3][1]) {
-        return '#36877a'
-      } else if (d <= breaks[4][1]) {
-        return '#1d4f60'
-      }
-    }
-
-
-
-    function addLegend(breaks) {
-
-      // create a new Leaflet control object, and position it top left
-      var legendControl = L.control({
-        position: 'topleft'
-      });
-
-      // when the legend is added to the map
-      legendControl.onAdd = function (map) {
-
-        // select a div element with an id attribute of legend
-        var legend = L.DomUtil.get('legend');
-
-        // disable scroll and click/touch on map when on legend
-        L.DomEvent.disableScrollPropagation(legend);
-        L.DomEvent.disableClickPropagation(legend);
-
-        // return the selection to the method
-        return legend;
-
-      };
-
-      // add the empty legend div to the map
-      legendControl.addTo(map);
-
-    }
-
-    function updateLegend(breaks) {
-
-      // select the legend, add a title, begin an unordered list and assign to a variable
-      var legend = $('#legend').html("<h5>" + [attributeValue] + " </h5>");
-
-      // loop through the Array of classification break values
-      for (var i = 0; i <= breaks.length - 1; i++) {
-
-        var color = getColor(breaks[i][0], breaks);
-
-        legend.append('<span style="background:' + color + '"></span> ' +
-          '<label>' + (breaks[i][0]) + ' &mdash; ' + (breaks[i][1]) +
-          '</label>');
-      }
-
-    }
-
-
-
-    function addUi(dataLayer) {
-      // create the slider control
-      var selectControl = L.control({
-        position: 'topright'
-      });
-
-      // when control is added
-      selectControl.onAdd = function (map) {
-        // get the element with id attribute of ui-controls
-        return L.DomUtil.get("ui-controls");
-      }
-      // add the control to the map
-      selectControl.addTo(map);
-
-
-      $('select[id="taxonomy-selector"]').change(function () {
-        // store reference to currently selected value
-        attributeValue = this.value;
-
-        // call updateMap function
-        updateMap(dataLayer);
-      });
-    }
-
-        function presenceUi() {
+        function getClassBreaks(dataLayer) {
+            // create empty Array for storing values
+            var values = [];
+            // loop through all the quads
+            dataLayer.eachLayer(function (layer) {
+                var value = layer.feature.properties[attributeValue];
+                // don't push zero values into the array
+                if (value > 0) {
+                    values.push(+value); // push the value for each layer into the Array
+                }
+            });
+            // determine similar clusters
+            var clusters = ss.ckmeans(values, 5);
+            // create an array of the lowest value within each cluster
+            var breaks = clusters.map(function (cluster) {
+                return [cluster[0], cluster.pop()];
+            });
+            //console.log(breaks);
+            //return array of arrays, e.g., [[0,5], [6, 10], etc]
+            return breaks;
+        }
+        function getColor(d, breaks) {
+            // function accepts a single  data attribute value
+            // and uses a series of conditional statements to determine which
+            // which color value to return to return to the function caller
+            // https://carto.com/carto-colors/
+            // #c4e6c3,#96d2a4,#6dbc90,#4da284,#36877a,#266b6e,#1d4f60
+            if (d <= breaks[0][1]) {
+                return '#c4e6c3';
+            } else if (d <= breaks[1][1]) {
+                return '#96d2a4';
+            } else if (d <= breaks[2][1]) {
+                return '#6dbc90';
+            } else if (d <= breaks[3][1]) {
+                return '#36877a'
+            } else if (d <= breaks[4][1]) {
+                return '#1d4f60'
+            }
+        }
+        function addLegend(breaks) {
+            // create a new Leaflet control object, and position it top left
+            var legendControl = L.control({
+                position: 'topleft'
+            });
+            // when the legend is added to the map
+            legendControl.onAdd = function (map) {
+                // select a div element with an id attribute of legend
+                var legend = L.DomUtil.get('legend');
+                // disable scroll and click/touch on map when on legend
+                L.DomEvent.disableScrollPropagation(legend);
+                L.DomEvent.disableClickPropagation(legend);
+                // return the selection to the method
+                return legend;
+            };
+            // add the empty legend div to the map
+            legendControl.addTo(map);
+        }
+        function updateLegend(breaks) {
+            // select the legend, add a title, begin an unordered list and assign to a variable
+            var legend = $('#legend').html("<h5>" + [attributeValue] + " </h5>");
+            // loop through the Array of classification break values
+            for (var i = 0; i <= breaks.length - 1; i++) {
+                var color = getColor(breaks[i][0], breaks);
+                legend.append('<span style="background:' + color + '"></span> ' +
+                    '<label>' + (breaks[i][0]) + ' &mdash; ' + (breaks[i][1]) +
+                    '</label>');
+            }
+        }
+        function addUi(dataLayer) {
+            // create the slider control
+            var selectControl = L.control({
+                position: 'topright'
+            });
+            // when control is added
+            selectControl.onAdd = function (map) {
+                // get the element with id attribute of ui-controls
+                return L.DomUtil.get("ui-controls");
+            }
+            // add the control to the map
+            selectControl.addTo(map);
+            $('select[id="taxonomy-selector"]').change(function () {
+                // call updateMap function
+                updateMap(dataLayer);
+            });
             // create the slider control
             var selectControl = L.control({
                 position: 'topright'
@@ -407,22 +407,13 @@
             // add the control to the map
             selectControl.addTo(map);
             $('select[id="presence-selector"]').change(function () {
-                // store reference to currently selected value
-                presenceValue = this.value;
-                //console.log(presenceValue);
                 // call updateMap function
-                updateMap();
+                updateMap(dataLayer);
             });
         }
-
-
-  </script>
-
-
-
-
-
+    </script>
 
 </body>
 
 </html>
+
