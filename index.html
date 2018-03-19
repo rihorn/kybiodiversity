@@ -186,10 +186,6 @@
         });
 
         var attributeValue = "allRecords";
-        //console.log(attributeValue);
-        var presence = ["allRecords", "Extant", "Historic/Extirpated"];
-        //console.log(presence[1,1,1]);
-
 
         $.getJSON("data/eoKyQuads.json", function (data) {
 
@@ -208,17 +204,13 @@
                         fillOpacity: 1,
                         fillColor: '#1f78b4'
                     };
-                },
-
+                }
 
             }).addTo(map);
-
-
 
             //first set the zoom/center to the dataLayer's extent
             map.fitBounds(dataLayer.getBounds());
             // bindTooltip();
-
 
             // call the update function
             updateMap(dataLayer);
@@ -229,6 +221,33 @@
         } // end function drawMap
 
         function updateMap(dataLayer) {
+
+            // get the currently selected values 
+            var taxonomyValue = $("#taxonomy-selector option:selected").val()
+            var presenceValue = $("#presence-selector option:selected").val()
+
+            if (presenceValue === "Extant" && taxonomyValue === "Plants") {
+                attributeValue = "ePlants"
+            }
+            if (presenceValue === "Extant" && taxonomyValue === "Animals") {
+                attributeValue = "eAnimals"
+            }
+            if (presenceValue === "Extant" && taxonomyValue === "Communities") {
+                attributeValue = "eCommunities"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Plants") {
+                attributeValue = "hPlants"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Animals") {
+                attributeValue = "hAnimals"
+            }
+            if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Communities") {
+                attributeValue = "hCommunities"
+            } else {
+                attributeValue = "allRecords"
+            }
+
+            console.log(attributeValue)
 
             // get the class breaks for the current data attribute
             var breaks = getClassBreaks(dataLayer);
