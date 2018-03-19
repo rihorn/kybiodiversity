@@ -224,8 +224,9 @@
 
             // get the currently selected values 
             var taxonomyValue = $("#taxonomy-selector option:selected").val()
-            var presenceValue = $("#presence-selector option:selected").val()
-
+                var presenceValue = $("#presence-selector option:selected").val()
+            
+            console.log(taxonomyValue, presenceValue)
             if (presenceValue === "Extant" && taxonomyValue === "Plants") {
                 attributeValue = "ePlants"
             }
