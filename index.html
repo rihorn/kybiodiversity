@@ -7,7 +7,7 @@
   <!-- loading Assembly CSS here -->
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
   <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
- 
+
   <style>
     .navbar-brand {
       display: inline-block;
@@ -18,13 +18,37 @@
       font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 24px;
     }
-  .navbar-text {      
-    display: inline-block;
+
+    .navbar-text {
+      display: inline-block;
       font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: #fff;
       font-size: 11px;
-     
+
     }
+
+    .container {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .ribbon a.ribbon-brand {
+      font-weight: 300;
+      font-size: 15px;
+      color: #555;
+      text-decoration: none;
+      padding: 9px 0;
+      display: inline-block;
+    }
+
+    .ul {
+      display: inline;
+    }
+
+
+
     #map {
       background: #448ee4;
     }
@@ -85,107 +109,109 @@
     <a class="navbar-brand" href="http://kentucky.gov">Ky.
       <small>gov</small>
     </a>
-    <p class="navbar-text" style="navbar-text"></p>An Official Website of the Commonwealth of Kentucky</p> 
+    <p class="navbar-text" style="navbar-text">An Official Website of the Commonwealth of Kentucky</p>
   </div>
 
-  
-  <div class='flex-parent viewport-full relative scroll-hidden'>
-    <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
-      <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
-        <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-          <h1 class='txt-h1 mb6'>Kentucky Biodiversity</h1>
-          <p>The Kentucky Biodiversity Project, coordinated through
-            <a target='_blank' href="http://naturepreserves.ky.gov/naturalheritage/Pages/default.aspx" ( "KY Nature Preserves")>
-              <i>
-                <u>Office of Kentucky Nature Preserves</u>
-              </i>
-            </a>, is the state's premier source for the most up to date information concerning Kentucky's rare plants, animals,
-            and communities. The project started in 2018 and hopes to grow this website as a valuable resource so citizens
-            and scientists alike can view, obtain, and contribute information about Kentucky's wonderful biodiversity. Kentucky
-            Nature Preserves participates in a hemisphere wide
-            <a target="_blank" href="http://www.natureserve.org/natureserve-network/united-states">
-              <i>
-                <u>network</u>
-              </i>
-            </a> of heritage programs that use an advance spatial data to catalog and track species, communities, natural and
-            managed areas, and conservation sites. </p>
-          <h2 class='txt-xl mt18 mb12'>Quad Heat Map</h2>
-          <p>This quad heat maps represents the distribution of the biodiversity of Kentucky's rare plants, animals and communities.
-            In addition, data is depicted to reflect current and historical/extirpated
-            <b>*</b> records. Feel free to toggle between the different
-            <i>record types</i> and the
-            <i>taxonomy</i> selector.</p>
-          <p>
-            <br>
-            <br>*
-            <b>Historical records</b> - core heritage methodology defines
-            <i>historical</i> as records that lack observation or data maintenance greater than 20 years. This does not exclude
-            the continued existence. As such, this historical component of this map serves to let observers of potential
-            places to investigate.
-          </p>
-          <p>
-            <br>
-            <br>*
-            <b>Element Occurrences</b> - an
-            <i>element</i> is the concept of intertwining several to identify, classify, and name a species or community, an
-            <i>occurrence</i>> is the record of an element existence, location, and other attributes. Unlike species list, element
-            occurrences are tracked and recorded over time</div>
-        <footer class='px12 py12 bg-gray-faint txt-s'>
-          <ul>
-            <li>Request
-              <a class='link' href='http://naturepreserves.ky.gov/data/Pages/datarequests.aspx'>custom data</a> from the KY Nature Preserves.
-            </li>
-            <li>Map authored by
-              <a class='link' href='https://rihorn.github.io/'>Ian Horn</a>
-            </li>
-          </ul>
-        </footer>
+
+
+    <div class='flex-parent viewport-full relative scroll-hidden'>
+      <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
+        <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
+          <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
+            <h1 class='txt-h1 mb6'>Kentucky Biodiversity</h1>
+            <p>The Kentucky Biodiversity Project, coordinated through
+              <a target='_blank' href="http://naturepreserves.ky.gov/naturalheritage/Pages/default.aspx" ( "KY Nature Preserves")>
+                <i>
+                  <u>Office of Kentucky Nature Preserves</u>
+                </i>
+              </a>, is the state's premier source for the most up to date information concerning Kentucky's rare plants, animals,
+              and communities. The project started in 2018 and hopes to grow this website as a valuable resource so citizens
+              and scientists alike can view, obtain, and contribute information about Kentucky's wonderful biodiversity.
+              Kentucky Nature Preserves participates in a hemisphere wide
+              <a target="_blank" href="http://www.natureserve.org/natureserve-network/united-states">
+                <i>
+                  <u>network</u>
+                </i>
+              </a> of heritage programs that use an advance spatial data to catalog and track species, communities, natural and
+              managed areas, and conservation sites. </p>
+            <h2 class='txt-xl mt18 mb12'>Quad Heat Map</h2>
+            <p>This quad heat maps represents the distribution of the biodiversity of Kentucky's rare plants, animals and communities.
+              In addition, data is depicted to reflect current and historical/extirpated
+              <b>*</b> records. Feel free to toggle between the different
+              <i>record types</i> and the
+              <i>taxonomy</i> selector.</p>
+            <p>
+              <br>
+              <br>*
+              <b>Historical records</b> - core heritage methodology defines
+              <i>historical</i> as records that lack observation or data maintenance greater than 20 years. This does not exclude
+              the continued existence. As such, this historical component of this map serves to let observers of potential
+              places to investigate.
+            </p>
+            <p>
+              <br>
+              <br>*
+              <b>Element Occurrences</b> - an
+              <i>element</i> is the concept of intertwining several to identify, classify, and name a species or community,
+              an
+              <i>occurrence</i>> is the record of an element existence, location, and other attributes. Unlike species list,
+              element occurrences are tracked and recorded over time</div>
+          <footer class='px12 py12 bg-gray-faint txt-s'>
+            <ul>
+              <li>Request
+                <a class='link' href='http://naturepreserves.ky.gov/data/Pages/datarequests.aspx'>custom data</a> from the KY Nature Preserves.
+              </li>
+              <li>Map authored by
+                <a class='link' href='https://rihorn.github.io/'>Ian Horn</a>
+              </li>
+            </ul>
+          </footer>
+        </div>
       </div>
-    </div>
-    <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
-      <div id="map" class='viewport-twothirds viewport-full-ml'></div>
+      <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
+        <div id="map" class='viewport-twothirds viewport-full-ml'></div>
 
 
-      <!-- legend -->
-      <div id='legend' class='bg-white round-ml px18 py12'>
-        <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
-        <div class='bg-blue h180 w240 mx-auto'></div>
+        <!-- legend -->
+        <div id='legend' class='bg-white round-ml px18 py12'>
+          <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
+          <div class='bg-blue h180 w240 mx-auto'></div>
+        </div>
+
+        <div id='ui-presence'>
+          <label>Record Type</label>
+          <select id="presence-selector">
+            <option value="allRecords" selected>All Records</option>
+            <option value="Extant">Extant</option>
+            <option value="Historic/Extirpated">Historic/Extirpated</option>
+          </select>
+        </div>
+        All Records
+        </label>
+        <label class='txt-s ml24 radio-container'>
+          <input name='radio-basic' type='radio'>
+          <div class='radio radio--s-label radio--yellow mr6'></div>
+          Extant
+        </label>
+        <label class='txt-s ml24 radio-container'>
+          <input name='radio-basic' type='radio'>
+          <div class='radio radio--s-label radio--yellow mr6'></div>
+          Historic/Extirpated
+        </label>
       </div>
 
-      <div id='ui-presence'>
-        <label>Record Type</label>
-        <select id="presence-selector">
-          <option value="allRecords" selected>All Records</option>
-          <option value="Extant">Extant</option>
-          <option value="Historic/Extirpated">Historic/Extirpated</option>
+      <div id='ui-controls'>
+        <label>Choose Taxonomy:</label>
+        <select id="taxonomy-selector">
+          <option value="allRecords" selected>All Element Occurrences</option>
+          <option value="Animals">Animals</option>
+          <option value="Plants">Plants</option>
+          <option value="Communities">Communities</option>
         </select>
       </div>
-      All Records
-      </label>
-      <label class='txt-s ml24 radio-container'>
-        <input name='radio-basic' type='radio'>
-        <div class='radio radio--s-label radio--yellow mr6'></div>
-        Extant
-      </label>
-      <label class='txt-s ml24 radio-container'>
-        <input name='radio-basic' type='radio'>
-        <div class='radio radio--s-label radio--yellow mr6'></div>
-        Historic/Extirpated
-      </label>
-    </div>
+      <!-- end ui-controls -->
 
-    <div id='ui-controls'>
-      <label>Choose Taxonomy:</label>
-      <select id="taxonomy-selector">
-        <option value="allRecords" selected>All Element Occurrences</option>
-        <option value="Animals">Animals</option>
-        <option value="Plants">Plants</option>
-        <option value="Communities">Communities</option>
-      </select>
     </div>
-    <!-- end ui-controls -->
-
-  </div>
   </div>
 
 
