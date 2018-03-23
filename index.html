@@ -96,7 +96,7 @@
     #ui-controls,
     #ui-presence {
       padding: 6px 9px;
-      background: white;
+      background: rgba(255, 255, 255, 0.315);
     }
   </style>
 
@@ -219,8 +219,10 @@
       minZoom: 1,
       maxZoom: 20,
       fillOpacity: 1
-      //maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
+      //maxBounds: L.latLngBounds([], [])
     });
+
+ 
     var attributeValue = "allRecords";
     $.getJSON("data/eoKyQuads.json", function (data) {
       drawMap(data);
@@ -239,6 +241,7 @@
       }).addTo(map);
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
+   
       // bindTooltip();
       // call the update function
       updateMap(dataLayer);
@@ -310,13 +313,13 @@
         }
 
         // assemble string sequence of info for tooltip (end line break with + operator)
-        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "# Records" + ": " +
+        var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "# of Records" + ": " +
           props[attributeValue] + " EOs";
         // bind a tooltip to layer with county-specific information
         layer.bindTooltip(tooltipInfo, {
           // sticky property so tooltip follows the mouse
           sticky: true,
-          tooltipAnchor: [200, 200]
+          tooltipAnchor: [300, 200]
         });
       });
     }
