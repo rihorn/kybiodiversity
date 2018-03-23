@@ -378,23 +378,21 @@
       legendControl.addTo(map);
     }
     function updateLegend(breaks) {
- 
-//23456789012345678901234567890123456789012345678901234567890123456789     
-
+      // get the currently selected values 
       var taxonomyValue = $("#taxonomy-selector option:selected").val()
       var presenceValue = $("#presence-selector option:selected").val()
 
-      if(taxonomyValue=="allRecords") {
-        taxonomyValue="EOs"
-      }
-     
-     if(presenceValue=="allRecords") {
-       presenceValue = "All"
-     }
+      //  if/else statement to change title
 
+      if (taxonomyValue == "allRecords") {
+        taxonomyValue = "EOs"
+      }
+
+      if (presenceValue == "allRecords") {
+        presenceValue = "All"
+      }
 
       console.log(taxonomyValue, presenceValue);
-
 
       // select the legend, add a title, begin an unordered list and assign to a variable
       var legend = $('#legend').html("<h5>" + presenceValue + " " + taxonomyValue + " </h5>");
