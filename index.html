@@ -207,8 +207,8 @@
           <option value="Historic/Extirpated">Historic/Extirpated</option>
         </select>
       </div> -->
-      <div id='ui-presence' class='bg-white'>
-        <!--  <label>Record Type</label> -->
+      <!-- <div id='ui-presence' class='bg-white'>
+         <label>Record Type</label> 
         <div id='ui-radio' class='bg-white'>
           <label class='radio-container'>
             <input name='radio-basic' type='radio' value="allRecords" checked="checked">
@@ -226,7 +226,20 @@
             Historic/Extirpated
           </label>
         </div>
-      </div>
+      </div> -->
+
+      <div id="ui-presence" class='session bg-white'>
+          <div class='row' id='presence-selector'>
+            <input id='allRecords' type='radio' name='toggle' value='allRecords' checked='checked'>
+            <label for='all'>All Records
+            <input id='Extant' type='radio' name='toggle' value='Extant'>
+            <label for='Extant'>Extant</label>
+            <input id='Historic/Extirpated' type='radio' name='toggle' value='Historic/Extirpated'>
+            <label for='Historic/Extirpated'>Historic/Extirpated</label>
+          </div>
+        </div>
+        
+        
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -293,7 +306,10 @@
     function updateMap(dataLayer) {
       // get the currently selected values 
       // var taxonomyValue = $("#taxonomy-selector option:selected").val()
-      var presenceValue = $('input[name=radio-basic]:checked').val()
+      // reference to get sample jquery radio button: 
+      // http: //www.jquerybyexample.net/2012/02/get-radio-button-value-using-jquery.html
+
+      var presenceValue = $('input[name=toggle]:checked').val()
       var taxonomyValue = $("#taxonomy-selector option:selected").val()
 
       console.log(taxonomyValue, presenceValue)
@@ -431,7 +447,7 @@
       // get the currently selected values 
       var taxonomyValue = $("#taxonomy-selector option:selected").val()
 
-      var presenceValue = $('[name=radio-basic]:checked').val()
+      var presenceValue = $('input[name=toggle]:checked').val()
 
       //  if/else statement to change title
 
@@ -483,7 +499,7 @@
       }
       // add the control to the map
       selectControl.addTo(map);
-      $('select[id="presence-selector"]').change(function () {
+      $('input[name="toggle"]').change(function () {
         // call updateMap function
         updateMap(dataLayer);
       });
