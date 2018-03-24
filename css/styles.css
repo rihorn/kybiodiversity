@@ -2,5 +2,112 @@
 
 /* display none for layout but be careful of license restrictions */
 
-
 /* override Assembly css rule */
+navbar-brand {
+    display: inline-block;
+    padding: 8px 10px 8px 0;
+    height: auto;
+    margin-left: 0 !important;
+    color: #fff;
+    font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+.navbar-text {
+    display: inline-block;
+    font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 11px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ribbon a.ribbon-brand {
+    font-weight: 300;
+    font-size: 15px;
+    color: #555;
+    text-decoration: none;
+    padding: 9px 0;
+    display: inline-block;
+}
+
+.ul {
+    display: inline;
+}
+
+#map {
+    background: #448ee4;
+}
+
+h1 {
+    color: orange;
+}
+
+.leaflet-tooltip {
+    min-width: 230px;
+    font-size: 140%;
+    white-space: normal;
+}
+
+#legend {
+    padding: 6px 8px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+#legend h5 {
+    font-size: 2.1em;
+}
+
+#legend span {
+    width: 35px;
+    height: 20px;
+    float: left;
+    margin: 0 10px 4px 0;
+}
+
+#legend label {
+    font-size: 1.2em;
+}
+
+#legend label:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#ui-controls {
+    padding: 6px 9px;
+    background: rgba(255, 255, 255, 0.315);
+}
+
+#ui-radio {
+    padding: none;
+    background: white
+}
+
+.radio {
+    border-radius: 50%;
+    color: var(--default-secondary-interactive-color);
+    border-color: currentColor;
+}
+
+.radio::before {
+    content: '';
+    background-color: currentColor;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    display: none;
+}
