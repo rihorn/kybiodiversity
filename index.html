@@ -199,70 +199,31 @@
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
 
-      <!-- <div id='ui-presence'>
-        <label>Record Type</label>
-        <select id="presence-selector">
-          <option value="allRecords" selected>All Records</option>
-          <option value="Extant">Extant</option>
-          <option value="Historic/Extirpated">Historic/Extirpated</option>
-        </select>
-      </div> -->
-      <!-- <div id='ui-presence' class='bg-white'>
-         <label>Record Type</label> 
-        <div id='ui-radio' class='bg-white'>
-          <label class='radio-container'>
-            <input name='radio-basic' type='radio' value="allRecords" checked="checked">
-            <div class='radio mr6 '></div>
-            All Records
-          </label>
-          <label class='txt-s ml24 radio-container'>
-            <input name='radio-basic' type='radio' value="Extant">
-            <div class='radio radio--s-label radio-- mr6 '></div>
-            Extant
-          </label>
-          <label class='txt-s ml24 radio-container'>
-            <input name='radio-basic' type='radio' value="Historic/Extirpated">
-            <div class='radio radio--s-label radio-- mr6'></div>
-            Historic/Extirpated
-          </label>
-        </div>
-      </div> -->
+
 
       <div id="ui-presence" class='session bg-white'>
-          <div class='row' id='presence-selector'>
-            <input id='allRecords' type='radio' name='toggle' value='allRecords' checked='checked'>
-            <label for='all'>All Records
+        <div class='row' id='presence-selector'>
+          <input id='allRecords' type='radio' name='toggle' value='allRecords' checked='checked'>
+          <label for='all'>All Records
             <input id='Extant' type='radio' name='toggle' value='Extant'>
             <label for='Extant'>Extant</label>
             <input id='Historic/Extirpated' type='radio' name='toggle' value='Historic/Extirpated'>
             <label for='Historic/Extirpated'>Historic/Extirpated</label>
-          </div>
         </div>
-        
-        
+      </div>
 
-      <!-- <div id='ui-controls'>
-        <label>Choose Taxonomy:</label>
-        <select id="taxonomy-selector">
-          <option value="allRecords" selected>All Element Occurrences</option>
-          <option value="Animals">Rare Animals</option>
-          <option value="Plants">Rare Plants</option>
-          <option value="Communities">Natural Communities</option>
-        </select>
-      </div> -->
       <div id="ui-controls" class='session bg-white'>
-          <div class='row' id='taxonomy-selector'>
-            <input id='allRecords' type='radio' name='toggle2' value='allRecords' checked='checked'>
-            <label for='all'>All Element Occurrences
+        <div class='row' id='taxonomy-selector'>
+          <input id='allRecords' type='radio' name='toggle2' value='allRecords' checked='checked'>
+          <label for='all'>All Element Occurrences
             <input id='Animals' type='radio' name='toggle2' value='Animals'>
             <label for='Animals'>Rare Animals</label>
             <input id='Plants' type='radio' name='toggle2' value='Plants'>
             <label for='Plants'>Rare Plants</label>
             <input id='Communities' type='radio' name='toggle2' value='Communities'>
             <label for='Communities'>Natural Communities</label>
-          </div>
         </div>
-        
+      </div>
 
       <!-- end ui-controls -->
 
@@ -311,23 +272,20 @@
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
 
-      // bindTooltip();
       // call the update function
       updateMap(dataLayer);
       addUi(dataLayer);
       addLegend();
     } // end function drawMap
     function updateMap(dataLayer) {
-      // get the currently selected values 
-      // var taxonomyValue = $("#taxonomy-selector option:selected").val()
+
       // reference to get sample jquery radio button: 
       // http: //www.jquerybyexample.net/2012/02/get-radio-button-value-using-jquery.html
-
+      //jquery to select input values
       var presenceValue = $('input[name=toggle]:checked').val()
-      // var taxonomyValue = $("#taxonomy-selector option:selected").val()
       var taxonomyValue = $('input[name=toggle2]:checked').val()
 
-      console.log(taxonomyValue, presenceValue)
+      //console.log(taxonomyValue, presenceValue)
       if (presenceValue === "allRecords" && taxonomyValue === "allRecords") {
         attributeValue = "allRecords"
       }
@@ -364,8 +322,8 @@
       if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Communities") {
         attributeValue = "hCommunities"
       }
-      
-    console.log(attributeValue)
+
+      console.log(attributeValue)
       // get the class breaks for the current data attribute
       var breaks = getClassBreaks(dataLayer);
       updateLegend(breaks);
@@ -416,7 +374,7 @@
       var breaks = clusters.map(function (cluster) {
         return [cluster[0], cluster.pop()];
       });
-   
+
       //return array of arrays, e.g., [[0,5], [6, 10], etc]
       return breaks;
     }
@@ -476,7 +434,7 @@
         presenceValue = "All"
       }
 
-      console.log(taxonomyValue, presenceValue);
+      //  console.log(taxonomyValue, presenceValue);
 
       // select the legend, add a title, begin an unordered list and assign to a variable
       var legend = $('#legend').html("<h5>" + presenceValue + " " + taxonomyValue + " </h5>");
