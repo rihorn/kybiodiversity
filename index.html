@@ -93,11 +93,14 @@
       clear: both;
     }
 
-    #ui-controls,
-    #ui-presence,
-    #ui-radio {
+    #ui-controls {
       padding: 6px 9px;
       background: rgba(255, 255, 255, 0.315);
+    }
+
+    #ui-radio {
+      padding: none;
+      background: white
     }
 
     .radio {
@@ -204,29 +207,24 @@
           <option value="Historic/Extirpated">Historic/Extirpated</option>
         </select>
       </div> -->
-      <div id='ui-presence' class='shadow-darken25'>
-          <!-- <label>Record Type</label> -->
-      <div id='ui-radio'>
+      <div id='ui-presence' class='bg-white'> 
+          <!--  <label>Record Type</label> -->
+      <div id='ui-radio' class='bg-white'>
         <label class='radio-container'>
-          <input name='radio-basic' type='radio' name="imgsel" value="" checked="checked">
+          <input name='radio-basic' type='radio' value="" checked="checked">
           <div class='radio mr6 '></div>
-          All Element Occurrences
+          All Records
         </label>
         <label class='txt-s ml24 radio-container'>
           <input name='radio-basic' type='radio'>
-          <div class='radio radio--s-label radio-- mr6 bg-darken25-on-active'></div>
-         Rare Animals
+          <div class='radio radio--s-label radio-- mr6 '></div>
+         Extant
         </label>
         <label class='txt-s ml24 radio-container'>
             <input name='radio-basic' type='radio'>
             <div class='radio radio--s-label radio-- mr6'></div>
-            Rare Plants
+            Historic/Extirpated
           </label>
-          <label class='txt-s ml24 radio-container'>
-              <input name='radio-basic' type='radio'>
-              <div class='radio radio--s-label radio-- mr6'></div>
-             Natural Communities
-            </label>
       </div>
     </div>
 
@@ -294,7 +292,8 @@
     } // end function drawMap
     function updateMap(dataLayer) {
       // get the currently selected values 
-      var taxonomyValue = $("#taxonomy-selector option:selected").val()
+      // var taxonomyValue = $("#taxonomy-selector option:selected").val()
+      var taxonomyValue = $("#radio-basic option:checked").val()
       var presenceValue = $("#presence-selector option:selected").val()
 
       console.log(taxonomyValue, presenceValue)
