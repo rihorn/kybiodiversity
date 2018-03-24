@@ -207,26 +207,26 @@
           <option value="Historic/Extirpated">Historic/Extirpated</option>
         </select>
       </div> -->
-      <div id='ui-presence' class='bg-white'> 
-          <!--  <label>Record Type</label> -->
-      <div id='ui-radio' class='bg-white'>
-        <label class='radio-container'>
-          <input name='radio-basic' type='radio' value="" checked="checked">
-          <div class='radio mr6 '></div>
-          All Records
-        </label>
-        <label class='txt-s ml24 radio-container'>
-          <input name='radio-basic' type='radio'>
-          <div class='radio radio--s-label radio-- mr6 '></div>
-         Extant
-        </label>
-        <label class='txt-s ml24 radio-container'>
-            <input name='radio-basic' type='radio'>
+      <div id='ui-presence' class='bg-white'>
+        <!--  <label>Record Type</label> -->
+        <div id='ui-radio' class='bg-white'>
+          <label class='radio-container'>
+            <input name='radio-basic' type='radio' value="allRecords" checked="checked">
+            <div class='radio mr6 '></div>
+            All Records
+          </label>
+          <label class='txt-s ml24 radio-container'>
+            <input name='radio-basic' type='radio' value="Extant">
+            <div class='radio radio--s-label radio-- mr6 '></div>
+            Extant
+          </label>
+          <label class='txt-s ml24 radio-container'>
+            <input name='radio-basic' type='radio' value="Historic/Extirpated">
             <div class='radio radio--s-label radio-- mr6'></div>
             Historic/Extirpated
           </label>
+        </div>
       </div>
-    </div>
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -293,8 +293,8 @@
     function updateMap(dataLayer) {
       // get the currently selected values 
       // var taxonomyValue = $("#taxonomy-selector option:selected").val()
-      var taxonomyValue = $("#radio-basic option:checked").val()
-      var presenceValue = $("#presence-selector option:selected").val()
+      var presenceValue = $('input[name=radio-basic]:checked').val()
+      var taxonomyValue = $("#presence-selector option:selected").val()
 
       console.log(taxonomyValue, presenceValue)
       if (presenceValue === "allRecords" && taxonomyValue === "allRecords") {
@@ -430,7 +430,8 @@
     function updateLegend(breaks) {
       // get the currently selected values 
       var taxonomyValue = $("#taxonomy-selector option:selected").val()
-      var presenceValue = $("#presence-selector option:selected").val()
+
+      var presenceValue = $('[name=radio-basic]:checked').val()
 
       //  if/else statement to change title
 
