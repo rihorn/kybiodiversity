@@ -3,7 +3,7 @@
 /* display none for layout but be careful of license restrictions */
 
 /* override Assembly css rule */
-navbar-brand {
+.navbar-brand {
     display: inline-block;
     padding: 8px 10px 8px 0;
     height: auto;
