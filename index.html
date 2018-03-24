@@ -94,9 +94,29 @@
     }
 
     #ui-controls,
-    #ui-presence {
+    #ui-presence,
+    #ui-radio {
       padding: 6px 9px;
       background: rgba(255, 255, 255, 0.315);
+      text-emphasis: size;
+    }
+
+    .radio {
+      border-radius: 50%;
+      color: var(--default-secondary-interactive-color);
+      border-color: currentColor;
+    }
+
+    .radio::before {
+      content: '';
+      background-color: currentColor;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      display: none;
     }
   </style>
 
@@ -177,14 +197,39 @@
         <div class='bg-blue h180 w240 mx-auto'></div>
       </div>
 
-      <div id='ui-presence'>
+      <!-- <div id='ui-presence'>
         <label>Record Type</label>
         <select id="presence-selector">
           <option value="allRecords" selected>All Records</option>
           <option value="Extant">Extant</option>
           <option value="Historic/Extirpated">Historic/Extirpated</option>
         </select>
+      </div> -->
+      <div id='ui-presence' class='shadow-darken25'>
+          <!-- <label>Record Type</label> -->
+      <div id='ui-radio'>
+        <label class='radio-container'>
+          <input name='radio-basic' type='radio' name="imgsel" value="" checked="checked">
+          <div class='radio mr6 '></div>
+          All Element Occurrences
+        </label>
+        <label class='txt-s ml24 radio-container'>
+          <input name='radio-basic' type='radio'>
+          <div class='radio radio--s-label radio-- mr6 bg-darken25-on-active'></div>
+         Rare Animals
+        </label>
+        <label class='txt-s ml24 radio-container'>
+            <input name='radio-basic' type='radio'>
+            <div class='radio radio--s-label radio-- mr6'></div>
+            Rare Plants
+          </label>
+          <label class='txt-s ml24 radio-container'>
+              <input name='radio-basic' type='radio'>
+              <div class='radio radio--s-label radio-- mr6'></div>
+             Natural Communities
+            </label>
       </div>
+    </div>
 
       <div id='ui-controls'>
         <label>Choose Taxonomy:</label>
@@ -222,7 +267,7 @@
       //maxBounds: L.latLngBounds([], [])
     });
 
- 
+
     var attributeValue = "allRecords";
     $.getJSON("data/eoKyQuads.json", function (data) {
       drawMap(data);
@@ -241,7 +286,7 @@
       }).addTo(map);
       //first set the zoom/center to the dataLayer's extent
       map.fitBounds(dataLayer.getBounds());
-   
+
       // bindTooltip();
       // call the update function
       updateMap(dataLayer);
@@ -323,6 +368,7 @@
         });
       });
     }
+
     function getClassBreaks(dataLayer) {
       // create empty Array for storing values
       var values = [];
@@ -344,6 +390,7 @@
       //return array of arrays, e.g., [[0,5], [6, 10], etc]
       return breaks;
     }
+
     function getColor(d, breaks) {
       // function accepts a single  data attribute value
       // and uses a series of conditional statements to determine which
@@ -362,6 +409,7 @@
         return '#1d4f60'
       }
     }
+
     function addLegend(breaks) {
       // create a new Leaflet control object, and position it top left
       var legendControl = L.control({
@@ -380,6 +428,7 @@
       // add the empty legend div to the map
       legendControl.addTo(map);
     }
+
     function updateLegend(breaks) {
       // get the currently selected values 
       var taxonomyValue = $("#taxonomy-selector option:selected").val()
@@ -407,6 +456,7 @@
           '</label>');
       }
     }
+
     function addUi(dataLayer) {
       // create the slider control
       var selectControl = L.control({
