@@ -174,9 +174,17 @@
             <br>
             <br>*
             <b>Element Occurrences</b> - an
-            <i>element</i> is the concept of intertwining several to identify, classify, and name a species or community, an
+            <i>element</i> is the concept of intertwining several systems to identify, classify, and name a species or community.  An
             <i>occurrence</i>> is the record of an element existence, location, and other attributes. Unlike species list, element
-            occurrences are tracked and recorded over time</div>
+            occurrences are tracked and recorded over time
+          </p>
+        <p>
+            <br>
+            <br>*
+            <b>Natural Communities</b> - a
+            <i>natural community</i> is an exemplary occurrence of an ecological community that is relatively un disturbed or may have recovered sufficiently from previous disturbances and have the flora and fauna that represents the ecological communities that existed at the time of European colonization.
+          </p>
+        </div>
         <footer class='px12 py12 bg-gray-faint txt-s'>
           <ul>
             <li>Request
@@ -448,22 +456,7 @@
     }
 
     function addUi(dataLayer) {
-      // create the slider control
-      var selectControl = L.control({
-        position: 'topright'
-      });
-      // when control is added
-      selectControl.onAdd = function (map) {
-        // get the element with id attribute of ui-controls
-        return L.DomUtil.get("ui-controls");
-      }
-      // add the control to the map
-      selectControl.addTo(map);
-      $('input[name=toggle2]').change(function () {
-        // call updateMap function
-        updateMap(dataLayer);
-      });
-      // create the slider control
+         // create the slider control
       var selectControl = L.control({
         position: 'topright'
       });
@@ -478,6 +471,23 @@
         // call updateMap function
         updateMap(dataLayer);
       });
+   
+   // create the slider control
+      var selectControl = L.control({
+        position: 'topright'
+      });
+      // when control is added
+      selectControl.onAdd = function (map) {
+        // get the element with id attribute of ui-controls
+        return L.DomUtil.get("ui-controls");
+      }
+      // add the control to the map
+      selectControl.addTo(map);
+      $('input[name=toggle2]').change(function () {
+        // call updateMap function
+        updateMap(dataLayer);
+      });
+
     }
   </script>
 
