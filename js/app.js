@@ -13,9 +13,22 @@
 
 
   var attributeValue = "allRecords";
-  $.getJSON("data/eoKyQuads.json", function (data) {
-    drawMap(data);
-  }); // end of $.getJSON()
+  // $.getJSON("data/eoKyQuads.json", function (data) {
+  //   drawMap(data);
+  // }); // end of $.getJSON()
+
+  getCsv = omnivore.csv('data/eoUnion.csv')
+  .on('ready', function (e) {
+    drawMap(e.target.toGeoJSON());
+    drawLegend(e.target.toGeoJSON());  // add this statement
+
+  })
+  .on('error', function (e) {
+    console.log(e.error[0].message);
+  });
+
+
+
   function drawMap(data) {
     // create Leaflet object with geometry data and add to map
     var dataLayer = L.geoJson(data, {
