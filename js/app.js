@@ -99,7 +99,7 @@
       attributeValue = "Communities"
     }
     if (presenceValue === "Extant" && taxonomyValue === "allRecords") {
-      attributeValue = "allExtant"
+      attributeValue = "Extant"
     }
     if (presenceValue === "Extant" && taxonomyValue === "Animals") {
       attributeValue = "eAnimals"
@@ -111,7 +111,7 @@
       attributeValue = "eCommunities"
     }
     if (presenceValue === "Historic/Extirpated" && taxonomyValue === "allRecords") {
-      attributeValue = "allHistoric"
+      attributeValue = "Historic/Extirpated"
     }
     if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Animals") {
       attributeValue = "hAnimals"
