@@ -29,7 +29,7 @@
       }
     });
 
-    drawMap(data);
+ 
   }); // end of $.getJSON()
 
   function processData(quads, data) {
@@ -52,6 +52,8 @@
         }
       }
     }
+
+    drawMap(quads);
 
   }
 
@@ -129,7 +131,7 @@
     dataLayer.eachLayer(function (layer) {
       var props = layer.feature.properties;
       // set the fill color of layer based on its normalized data value
-      if (+props[attributeValue] != 0) {
+      if (+props[attributeValue] > 0) {
         // set the fill color of layer based on its normalized data value
         layer.setStyle({
           fillColor: getColor(+props[attributeValue], breaks),
