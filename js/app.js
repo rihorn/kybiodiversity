@@ -14,7 +14,7 @@
 
   var attributeValue = "allRecords";
   // AJAX request for GeoJSON data
-  $.getJSON('data/kyQuads.json', function (quads) {
+  $.getJSON('data/KyQuads.json', function (quads) {
 
     //AJAX Request for parsing of CSV data
     Papa.parse("data/eoUnion.csv", {
