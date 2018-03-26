@@ -21,11 +21,9 @@
       download: true,
       header: true,
       complete: function (data) {
-        // data is accessible to us here
-       //console.log('data: ', data);
 
         processData(quads, data)
-        console.log(quads, data)
+      
       }
     });
 
@@ -33,8 +31,7 @@
   }); // end of $.getJSON()
 
   function processData(quads, data) {
-    //console.log(quads);
-    //console.log(data);
+
 
     // loop through all the quads
     for (var i = 0; i < quads.features.length; i++) {
@@ -42,7 +39,7 @@
 
 
       for (var j = 0; j < data.data.length; j++) {
-        //console.log(typeof data.object[j]);
+     
         if (props.quad24name === data.data[j].QUAD_NAME) {
           // reassign the variables
           quads.features[i].properties = data.data[j]
@@ -123,7 +120,7 @@
       attributeValue = "hCommunities"
     }
 
-    //console.log(attributeValue)
+
     // get the class breaks for the current data attribute
     var breaks = getClassBreaks(dataLayer);
     updateLegend(breaks);
@@ -233,8 +230,6 @@
     if (presenceValue == "allRecords") {
       presenceValue = "All"
     }
-
-    //  console.log(taxonomyValue, presenceValue);
 
     // select the legend, add a title, begin an unordered list and assign to a variable
     var legend = $('#legend').html("<h5>" + presenceValue + " " + taxonomyValue + " </h5>");
