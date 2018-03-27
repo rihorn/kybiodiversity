@@ -25,7 +25,7 @@
        //console.log('data: ', data);
 
         processData(quads, data)
-        console.log(quads, data)
+        //console.log(quads, data)
       }
     });
 
@@ -33,12 +33,14 @@
   }); // end of $.getJSON()
 
   function processData(quads, data) {
-    //console.log(quads);
-    //console.log(data);
+    // console.log(quads);
+    // console.log(data);
+   
 
     // loop through all the quads
     for (var i = 0; i < quads.features.length; i++) {
       var props = quads.features[i].properties;
+     
 
 
       for (var j = 0; j < data.data.length; j++) {
@@ -99,7 +101,7 @@
       attributeValue = "Communities"
     }
     if (presenceValue === "Extant" && taxonomyValue === "allRecords") {
-      attributeValue = "allExtant"
+      attributeValue = "Extant"
     }
     if (presenceValue === "Extant" && taxonomyValue === "Animals") {
       attributeValue = "eAnimals"
@@ -111,7 +113,7 @@
       attributeValue = "eCommunities"
     }
     if (presenceValue === "Historic/Extirpated" && taxonomyValue === "allRecords") {
-      attributeValue = "allHistoric"
+      attributeValue = "Historic/Extirpated"
     }
     if (presenceValue === "Historic/Extirpated" && taxonomyValue === "Animals") {
       attributeValue = "hAnimals"
@@ -146,8 +148,10 @@
       }
 
       // assemble string sequence of info for tooltip (end line break with + operator)
-      var tooltipInfo = "QUAD: " + props["quad24name"] + "<br>" + "# of Records" + ": " +
+      var tooltipInfo = "QUAD: " + props["QUAD_NAME"] + "<br>" + "# of Records" + ": " +
         props[attributeValue] + " EOs";
+        console.log(props);
+
       // bind a tooltip to layer with county-specific information
       layer.bindTooltip(tooltipInfo, {
         // sticky property so tooltip follows the mouse
