@@ -86,13 +86,14 @@ h1 {
 
 #ui-controls {
     padding: 6px 9px;
-    background: rgba(255, 255, 255, 0.315);
+/* background: rgba(255, 255, 255, 0.315); */
 }
 
 #ui-radio {
     padding: none;
     background: white
 }
+
 
 .radio {
     border-radius: 50%;
@@ -110,4 +111,10 @@ h1 {
     right: 2px;
     bottom: 2px;
     display: none;
+}
+#taxonomy-selector {
+    background: #c4e6c3;
+}
+#presence-selector {
+    background: #c4e6c3 ;
 }
