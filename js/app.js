@@ -1,7 +1,5 @@
 (function () {
 
-  window.scroll(0, document.documentElement.scrollHeight)
-  
   L.mapbox.accessToken =
     'pk.eyJ1IjoiaWFuaG9ybiIsImEiOiJjamRocmdseWUxMjJ0MnlwNDdiMDd5ZXZzIn0.jBWD0r86k4pBSymNrCKfzw';
   var map = L.mapbox.map('map', 'mapbox.pirates', {
