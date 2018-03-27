@@ -1,3 +1,6 @@
+/* This view basically makes a list with all the field permuations (e.g. Extant Plants) on one line per quad*/
+
+
 create view eo_quads_union_vw as
 
 with total_list as (

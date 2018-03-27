@@ -1,5 +1,5 @@
 /* the follow statement creates a view in the database */
-/* this allows for future queries of select * from eo_quads_vw */
+/* assigning values to taxonomy types*/
 CREATE OR REPLACE VIEW EO_QUADS_VW
 AS
   SELECT
